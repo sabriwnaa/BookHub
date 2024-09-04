@@ -117,3 +117,42 @@ footer{
     flex-wrap: wrap;
     
 }
+
+.menu_content {
+    width: 70px;
+    height: 70px;
+}
+
+.item {
+    border-radius: 50%;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+}
+
+i {
+    font-size: 50px;
+}
+
+.item:hover {
+    scale: 1.1;
+    transition: scale .3s;
+}
+
+.item:hover  ~ .options .item:nth-child(1) {
+    transform: translate(0, -5.5rem);
+}
+
+.item:hover  ~ .options .item:nth-child(2) {
+    transform: translate(0, -11rem);
+    transition-delay: .1s;
+}
+
+.item:hover  ~ .options .item:nth-child(3) {
+    transform: translate(0, -16.5rem);
+    transition-delay: .2s;
+}
