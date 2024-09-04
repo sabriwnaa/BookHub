@@ -152,8 +152,3 @@ footer{
     transform: translate(0, -8rem);
     transition-delay: .1s;
 }
-
-.active ~ .options .item:nth-child(3) {
-    transform: translate(0, -12rem);
-    transition-delay: .2s;
-}

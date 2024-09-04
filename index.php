@@ -54,8 +54,6 @@
     </div>
         <div class="options">
            
-                <a href="formAddEmprestimo.php" id="addEmprestimo" name="addEmprestimo" class='item'>E</a>
-            
                 <a href="formAddLivro.php" button id="addLivro" name="addLivro"  class='item'>L</a>
         
                 <a href="formAddAutor.php" button id="addAutor" name="addAutor"  class='item' >A</a>
