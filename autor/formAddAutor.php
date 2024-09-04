@@ -23,6 +23,7 @@
         <label for=nome>Nome</label>
         <input type=text id=nome required name=nome>
         
+        
     </form>
     </main>
 </body>

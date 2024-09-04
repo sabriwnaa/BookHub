@@ -9,6 +9,6 @@
         //Executa a consulta e armazena o resultado
         $resultado = $db->query($query);
 
-        header("location:index.php");
+        header("location:../index.php");
     }
 ?>

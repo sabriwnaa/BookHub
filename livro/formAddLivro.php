@@ -20,7 +20,7 @@
     <main> 
     <form method='post' action='addLivro.php' enctype="multipart/form-data">
         <label for="capa">Selecione o arquivo:</label>
-        <input type="file" name="capa" id="capa" required  accept=".pdf, .png">
+        <input type="file" name="capa" id="capa" required  accept=".pdf, .png, .jpg">
         <label for=titulo>Título</label>
         <input type=text id=titulo required name=titulo>
         <br>
@@ -33,14 +33,14 @@
         <?php
    
         $db = new mysqli("localhost", "root", "", "bookhub");
-        $query = "SELECT nome FROM `autor` WHERE 1;";
+        $query = "SELECT id, nome FROM `autor` WHERE 1;";
         $resultado = $db->query($query);
 
         if ($resultado->num_rows > 0) {
             // Percorre os resultados e exibe cada título
             echo "<select name='autor' id='autor' required>";
         while($row = $resultado->fetch_assoc()) {
-            echo "<option value='0'>" . $row['nome']. "</option>";
+            echo "<option value=" . $row['id'] . ">" . $row['nome']. "</option>";
         }
             echo "</select>";
         } else {
