@@ -30,18 +30,9 @@
     </header>
     
     <main>
-        
-        <div class="containerLivros">
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
+
+        <div class="containLivros">
+            
         </div>
 
     </main>
