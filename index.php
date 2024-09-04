@@ -50,15 +50,14 @@
     
     <div class="item floating_item" style="background-color: #0081CF; z-index: 1; rotate: 45deg;">
         <p>+</p>
-           
-        </div>
+    </div>
         <div class="options">
            
                 <a href="#" id="addEmprestimo" name="addEmprestimo" class='item'>E</a>
             
-                <a href="#" button id="addLivro" name="addLivro"  class='item'>L</a>
+                <a href="formAddLivro" button id="addLivro" name="addLivro"  class='item'>L</a>
         
-                <a href="#" button id="addAutor" name="addAutor"  class='item' >A</a>
+                <a href="formAddAutor" button id="addAutor" name="addAutor"  class='item' >A</a>
             
         </div>
     </div>

@@ -125,13 +125,14 @@ footer{
 
 .item {
     border-radius: 100%;
-    color: white;
-    padding: 10px;
+    color: rgb(85, 16, 85);
+    padding: 30px;
     position: fixed;
     bottom: 0;
     right: 0;
     cursor: pointer;
     transition: all .5s ease-in-out;
+    background-color: bisque;
 }
 
 .active {
