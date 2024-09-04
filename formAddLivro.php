@@ -18,7 +18,9 @@
     </header>
 
     <main> 
-    <form method='post' action='addLivro.php'>
+    <form method='post' action='addLivro.php' enctype="multipart/form-data">
+        <label for="capa">Selecione o arquivo:</label>
+        <input type="file" name="capa" id="capa" required  accept=".pdf, .png">
         <label for=titulo>Título</label>
         <input type=text id=titulo required name=titulo>
         <br>
@@ -26,7 +28,7 @@
         <input type=number id=ano required name=ano>
         <br>
         <label for=autor>Autor(a)</label>
-        <input type=text id=autor required name=autor>
+        <select id=autor required name=autor>
         <br>
         <input type=submit name=botao value='Adicionar'>
     </form>
