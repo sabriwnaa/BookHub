@@ -11,9 +11,10 @@
 <div class="container">
     <header>
         <div class="logoDiv">
-
+            <a href="index.php">
            <img class="logo" src="image/logo.png" alt="">
-            <h1>BookHub</h1> 
+            <h1>BookHub</h1>
+            </a>
         </div>
         
         <div class="pesquisar"> 
@@ -53,9 +54,9 @@
     </div>
         <div class="options">
            
-                <a href="#" id="addEmprestimo" name="addEmprestimo" class='item'>E</a>
+                <a href="formAddEmprestimo.php" id="addEmprestimo" name="addEmprestimo" class='item'>E</a>
             
-                <a href="formAddLivro" button id="addLivro" name="addLivro"  class='item'>L</a>
+                <a href="formAddLivro.php" button id="addLivro" name="addLivro"  class='item'>L</a>
         
                 <a href="formAddAutor.php" button id="addAutor" name="addAutor"  class='item' >A</a>
             
