@@ -68,9 +68,9 @@
     </div>
         <div class="options">
            
-                <a href="formAddLivro.php" button id="addLivro" name="addLivro"  class='item'>L</a>
+                <a href="livro/formAddLivro.php" button id="addLivro" name="addLivro"  class='item'>L</a>
         
-                <a href="formAddAutor.php" button id="addAutor" name="addAutor"  class='item' >A</a>
+                <a href="autor/formAddAutor.php" button id="addAutor" name="addAutor"  class='item' >A</a>
             
         </div>
     </div>
