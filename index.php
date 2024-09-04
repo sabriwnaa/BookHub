@@ -31,7 +31,7 @@
     
     <main>
 
-        <div class="containLivros">
+        <div class="containerLivros">
 
        
 
@@ -43,7 +43,6 @@
 
             if ($resultado->num_rows > 0) {
                 // Percorre os resultados e exibe cada título
-                echo "<ul>";
             while($row = $resultado->fetch_assoc()) {
                 $caminhoImagem = $row['capa'];
                 
@@ -52,7 +51,6 @@
                 
                 
             }
-            echo "</ul>";
             } else {
                 echo "Nenhum livro encontrado.";
     }
