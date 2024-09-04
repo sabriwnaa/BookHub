@@ -58,8 +58,7 @@
     
         </div>
 
-    </main>
-
+        
     <div class="menu_content">
     
     
@@ -74,6 +73,9 @@
             
         </div>
     </div>
+
+    </main>
+
     
     <script>
         const menu = document.querySelector('.floating_item')
