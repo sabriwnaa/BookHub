@@ -1,10 +1,10 @@
 <?php
     if(isset($_POST)){
         //Conexão com o banco de dados
-        $db = new mysqli("localhost", "root", "", "biblioteca");
+        $db = new mysqli("localhost", "root", "", "bookhub");
     
         //Query de consulta
-        $query = "insert into livros (nome) values ('{$_POST['nome']}')";
+        $query = "insert into autor (nome) values ('{$_POST['nome']}')";
 
         //Executa a consulta e armazena o resultado
         $resultado = $db->query($query);
