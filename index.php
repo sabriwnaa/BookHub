@@ -43,7 +43,11 @@
                 // Percorre os resultados e exibe cada título
                 echo "<ul>";
             while($row = $resultado->fetch_assoc()) {
-                echo "<li><img class='capa' src='image/" . $row['capa'] . "'></li>";
+                $caminhoImagem = $row['capa'];
+                echo "<div>";
+                echo $caminhoImagem;
+                echo "<img src='" . $caminhoImagem . "' ";
+                echo "</div>";
             }
             echo "</ul>";
             } else {

@@ -40,7 +40,7 @@
             // Percorre os resultados e exibe cada título
             echo "<select name='autor' id='autor' required>";
         while($row = $resultado->fetch_assoc()) {
-            echo "<option value=" . $row['id'] . ">" . $row['nome']. "</option>";
+            echo "<option value='" . $row['id'] . "'>" . $row['nome'] . "</option>";
         }
             echo "</select>";
         } else {
@@ -52,7 +52,7 @@
 
         ?>
 
-    <label for=autor>Autor(a)</label>
+    <label for='autor'>Autor(a)</label>
     
     
         
