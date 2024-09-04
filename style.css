@@ -138,21 +138,25 @@ i {
     font-size: 50px;
 }
 
-.item:hover {
+.active {
+    transform: rotate(45deg);
+}
+
+.active ~ .options .item:hover {
     scale: 1.1;
     transition: scale .3s;
 }
 
-.item:hover  ~ .options .item:nth-child(1) {
-    transform: translate(0, -5.5rem);
+.active ~ .options .item:nth-child(1) {
+    transform: translate(0, -4rem);
 }
 
-.item:hover  ~ .options .item:nth-child(2) {
-    transform: translate(0, -11rem);
+.active ~ .options .item:nth-child(2) {
+    transform: translate(0, -8rem);
     transition-delay: .1s;
 }
 
-.item:hover  ~ .options .item:nth-child(3) {
-    transform: translate(0, -16.5rem);
+.active ~ .options .item:nth-child(3) {
+    transform: translate(0, -12rem);
     transition-delay: .2s;
 }
