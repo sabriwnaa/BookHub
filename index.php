@@ -50,18 +50,16 @@
     
     <div class="item floating_item" style="background-color: #0081CF; z-index: 1; rotate: 45deg;">
         <p>+</p>
-            <i class='bx bx-x'></i>
+           
         </div>
         <div class="options">
-            <div class="item" style="background-color: #008E9B;">
-                <i class='bx bxs-pencil'></i>
-            </div>
-            <div class="item" style="background-color: #FFC75F;">
-                <i class='bx bx-cog'></i>
-            </div>
-            <div class="item" style="background-color: #D65DB1;">
-                <i class='bx bx-printer' ></i>
-            </div>
+           
+                <a href="#" id="addEmprestimo" name="addEmprestimo" class='item'>E</a>
+            
+                <a href="#" button id="addLivro" name="addLivro"  class='item'>L</a>
+        
+                <a href="#" button id="addAutor" name="addAutor"  class='item' >A</a>
+            
         </div>
     </div>
     
