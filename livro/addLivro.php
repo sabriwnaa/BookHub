@@ -13,7 +13,7 @@
         $destinoCapa = $diretorioDestino.$_FILES['capa']['name'];
 
         //Query de consulta
-        $query = "insert into livro (titulo, id, ano, capa) values ('{$_POST['titulo']}',{$_POST['autor']},{$_POST['ano']},'{$destinoCapa}')";
+        $query = "insert into livro (titulo, idAutor, ano, capa) values ('{$_POST['titulo']}',{$_POST['autor']},{$_POST['ano']},'{$destinoCapa}')";
 
         //Executa a consulta e armazena o resultado
         $resultado = $db->query($query);
