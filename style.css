@@ -153,6 +153,11 @@ footer{
     background-color: bisque;
 }
 
+.capa{
+    width: 50px;
+    height: 100%;
+}
+
 .active {
     transform: rotate(45deg);
 }

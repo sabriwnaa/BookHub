@@ -36,14 +36,14 @@
         <?php
    
             $db = new mysqli("localhost", "root", "", "bookhub");
-            $query = "SELECT titulo FROM `livro` WHERE 1;";
+            $query = "SELECT capa FROM `livro`;";
             $resultado = $db->query($query);
 
             if ($resultado->num_rows > 0) {
                 // Percorre os resultados e exibe cada título
                 echo "<ul>";
             while($row = $resultado->fetch_assoc()) {
-                echo "<li>" . $row['titulo'] . "</li>";
+                echo "<li><img class='capa' src='image/" . $row['capa'] . "'></li>";
             }
             echo "</ul>";
             } else {
