@@ -54,7 +54,7 @@
         </div>
         <div class="options">
             <div class="item" style="background-color: #008E9B;">
-                <i class='bx bxs-pencil'></i>
+                <i class='bx bxs-pencil'><a href="formAdicionaArtista"></a></i>
             </div>
             <div class="item" style="background-color: #FFC75F;">
                 <i class='bx bx-cog'></i>
