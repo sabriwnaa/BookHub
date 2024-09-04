@@ -124,7 +124,7 @@ footer{
 }
 
 .item {
-    border-radius: 50%;
+    border-radius: 100%;
     color: white;
     padding: 10px;
     position: fixed;
@@ -132,10 +132,6 @@ footer{
     right: 0;
     cursor: pointer;
     transition: all .5s ease-in-out;
-}
-
-i {
-    font-size: 50px;
 }
 
 .active {
