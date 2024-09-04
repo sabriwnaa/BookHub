@@ -33,6 +33,8 @@
 
         <div class="containLivros">
 
+        <img class="capa" src="image/wp11203155-heartstopper-desktop-wallpapers.jpg" alt="">
+
         <?php
    
             $db = new mysqli("localhost", "root", "", "bookhub");
@@ -44,10 +46,11 @@
                 echo "<ul>";
             while($row = $resultado->fetch_assoc()) {
                 $caminhoImagem = $row['capa'];
-                echo "<div>";
-                echo $caminhoImagem;
-                echo "<img src='" . $caminhoImagem . "' ";
-                echo "</div>";
+                
+                
+                echo "<img class='capa' src='$caminhoImagem' </img>";
+                
+                
             }
             echo "</ul>";
             } else {

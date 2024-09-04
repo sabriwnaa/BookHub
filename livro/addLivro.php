@@ -13,11 +13,13 @@
         //Caminho onde o imagem será armazenado
         $destinoCapa = $diretorioDestino.$_FILES['capa']['name'];
 
+        $caminhoTeste = "image/" . $_FILES['capa']['name'];
+
         //adiciona a imagem no php aqui
         move_uploaded_file($_FILES['capa']['tmp_name'], $destinoCapa);
 
         //Query de consulta
-        $query = "insert into livro (titulo, ano, idAutor, capa) values ('{$_POST['titulo']}',{$_POST['ano']},{$_POST['autor']},'{$destinoCapa}')";
+        $query = "insert into livro (titulo, ano, idAutor, capa) values ('{$_POST['titulo']}',{$_POST['ano']},{$_POST['autor']},'{$caminhoTeste}')";
 
         //Executa a consulta e armazena o resultado
         $resultado = $db->query($query);
