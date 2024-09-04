@@ -19,10 +19,28 @@ header{
     flex: 1;
     justify-content: space-between;
     align-items: center;
+
     
     padding: 10px 20px;
     color: white;
 
+}
+
+.logoDiv{
+    width: 300px;
+    display: flex;
+    
+    
+}
+
+.logoDiv a{
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    gap: 20px;
 }
 
 main{
