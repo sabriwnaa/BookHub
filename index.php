@@ -33,7 +33,7 @@
 
         <div class="containLivros">
 
-        <img class="capa" src="image/wp11203155-heartstopper-desktop-wallpapers.jpg" alt="">
+       
 
         <?php
    
