@@ -120,10 +120,7 @@ footer{
 
 
 
-.capa:hover{
-    transform: scale(1.15);
-    transition: 200ms;
-}
+
 
 .containerLivros{
     padding: 20px;
@@ -150,8 +147,18 @@ footer{
 }
 
 .capa{
+    margin: 10px;
     width: 150px;
     height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: 200ms;
+    cursor: pointer;
+    
+}
+.capa:hover{
+    transform: scale(1.15);
+    transition: 200ms;
 }
 
 .active {
