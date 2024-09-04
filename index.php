@@ -32,7 +32,30 @@
     <main>
 
         <div class="containLivros">
-            
+
+        <?php
+   
+            $db = new mysqli("localhost", "root", "", "bookhub");
+            $query = "SELECT titulo FROM `livro` WHERE 1;";
+            $resultado = $db->query($query);
+
+            if ($resultado->num_rows > 0) {
+                // Percorre os resultados e exibe cada título
+                echo "<ul>";
+            while($row = $resultado->fetch_assoc()) {
+                echo "<li>" . $row['titulo'] . "</li>";
+            }
+            echo "</ul>";
+            } else {
+                echo "Nenhum livro encontrado.";
+    }
+
+    // Fecha a conexão com o banco de dados
+    $db->close();
+    
+    ?>
+
+    
         </div>
 
     </main>
