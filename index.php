@@ -46,10 +46,8 @@
             while($row = $resultado->fetch_assoc()) {
                 $caminhoImagem = $row['capa'];
                 
-                
                 echo "<img class='capa' src='$caminhoImagem' </img>";
-                
-                
+               
             }
             } else {
                 echo "Nenhum livro encontrado.";

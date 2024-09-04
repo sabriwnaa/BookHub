@@ -118,19 +118,15 @@ footer{
     width: 25px;
 }
 
-.card{
-    background-color: aliceblue;
-    width: 100px;
-    height: 150px;
-    margin: 10px;
-}
 
-.card:hover{
+
+.capa:hover{
     transform: scale(1.15);
     transition: 200ms;
 }
 
 .containerLivros{
+    padding: 20px;
     display: flex;
     flex-wrap: wrap;
     
@@ -154,7 +150,7 @@ footer{
 }
 
 .capa{
-    width: 200px;
+    width: 150px;
     height: 100%;
 }
 
