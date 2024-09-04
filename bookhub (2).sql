@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04/09/2024 às 13:10
+-- Tempo de geração: 04/09/2024 às 13:58
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `bookhub`
 --
+CREATE DATABASE IF NOT EXISTS `bookhub` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `bookhub`;
 
 -- --------------------------------------------------------
 
@@ -38,7 +40,8 @@ CREATE TABLE `autor` (
 
 INSERT INTO `autor` (`id`, `nome`) VALUES
 (1, 'Clarice Lispector'),
-(2, 'V. E. Schwab');
+(2, 'V. E. Schwab'),
+(3, 'testetiando');
 
 -- --------------------------------------------------------
 
@@ -110,7 +113,7 @@ ALTER TABLE `livro`
 -- AUTO_INCREMENT de tabela `autor`
 --
 ALTER TABLE `autor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `emprestimo`

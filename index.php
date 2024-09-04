@@ -57,7 +57,7 @@
             
                 <a href="formAddLivro" button id="addLivro" name="addLivro"  class='item'>L</a>
         
-                <a href="formAddAutor" button id="addAutor" name="addAutor"  class='item' >A</a>
+                <a href="formAddAutor.php" button id="addAutor" name="addAutor"  class='item' >A</a>
             
         </div>
     </div>
