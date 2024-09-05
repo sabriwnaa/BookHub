@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04/09/2024 às 13:58
+-- Tempo de geração: 05/09/2024 às 04:05
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -41,7 +41,8 @@ CREATE TABLE `autor` (
 INSERT INTO `autor` (`id`, `nome`) VALUES
 (1, 'Clarice Lispector'),
 (2, 'V. E. Schwab'),
-(3, 'testetiando');
+(4, 'Bell'),
+(7, 'Ana');
 
 -- --------------------------------------------------------
 
@@ -77,9 +78,10 @@ CREATE TABLE `livro` (
 --
 
 INSERT INTO `livro` (`id`, `titulo`, `idAutor`, `ano`, `capa`, `emprestado`) VALUES
-(1, 'Água Viva', 1, '1973', '#', 0),
-(2, 'Perto do Coração Selvagem', 1, '1943', '#', 0),
-(3, 'A Vida Invisível de Addie LaRue', 2, '2020', '#', 0);
+(12, 'Tudo Sobre o Amor', 4, '1999', 'image/51zZpV5P2aL._AC_UF1000,1000_QL80_.jpg', 0),
+(13, 'sla', 2, '2024', 'image/IMG_20240826_073853045_AE.jpg', 0),
+(14, 'sa', 4, '21', 'image/1000013826-removebg-preview.png', 0),
+(15, 'herat', 4, '789', 'image/wp11203155-heartstopper-desktop-wallpapers.jpg', 0);
 
 --
 -- Índices para tabelas despejadas
@@ -113,7 +115,7 @@ ALTER TABLE `livro`
 -- AUTO_INCREMENT de tabela `autor`
 --
 ALTER TABLE `autor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `emprestimo`
@@ -125,7 +127,7 @@ ALTER TABLE `emprestimo`
 -- AUTO_INCREMENT de tabela `livro`
 --
 ALTER TABLE `livro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Restrições para tabelas despejadas
