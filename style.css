@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 header,footer,main{
@@ -23,7 +23,7 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    color: white;
+    color: black;
 
 }
 
@@ -36,7 +36,7 @@ header{
 
 .logoDiv a{
     text-decoration: none;
-    color: white;
+    color: black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,7 +57,7 @@ footer{
     align-items: center;
     
     padding: 10px 20px;
-    color: white;
+    color: black;
 }
 
 .container{
@@ -91,7 +91,7 @@ footer{
 .inputPesquisar{
     border: solid white;
     background-color: #6e0d51;
-    color: white;
+    color: black;
     padding: 2px;
     font-size: 15px;
     border-radius: 20px;
@@ -258,7 +258,7 @@ footer{
 }
 
 .btnVerTodos{
-    color: white;
+    color: black;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -78,7 +78,7 @@
             
         </div>
         <div class="infoFooter">
-            <a href="#">Editar</a>
+            <a href="formEditLivro.php?idLivro=<?php echo $livro['id']; ?>">Editar</a>
         </div>
     </div>
 

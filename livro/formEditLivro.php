@@ -1,16 +1,24 @@
 <?php
-    if(isset($_GET)){
-        //Conexão com o banco de dados
-        $db = new mysqli("localhost", "root", "", "biblioteca");
+    if (isset($_GET['idLivro']) && !empty($_GET['idLivro'])) {
+        // Conexão com o banco de dados
+        $db = new mysqli("localhost", "root", "", "bookhub");
+        $idLivro = $_GET['idLivro'];
 
-        //Query de consulta
-        $query = "select * from livros where idLivro = {$_GET['idlivro']}";
-
+        // Verifica se a variável contém um número válido
+        $query = "SELECT * FROM `livro` WHERE id = $idLivro;";
         $resultado = $db->query($query);
 
-        $livro = $resultado->fetch_array();
+        if ($resultado) {
+            $livro = $resultado->fetch_array();
+        } else {
+            echo "Erro ao buscar o livro.";
+        }
 
-
+        // Pega os autores para o dropdown
+        $queryAutor = "SELECT id, nome FROM `autor`;";
+        $resultadoAutor = $db->query($queryAutor);
+    } else {
+        echo "ID do livro não foi fornecido ou é inválido.";
     }
 ?>
 <!DOCTYPE html>
@@ -19,28 +27,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar livro</title>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <form method='post' action='editLivro.php'>
-        <label for=titulo>Título</label>
-        <?php
-            echo "<input type=text id=titulo required name=titulo value='{$livro['titulo']}'>";
-        ?>
-        <br>
-        <label for=ano>Ano</label>
-        <?php
-            echo "<input type=number id=ano required name=ano value={$livro['ano']}>";
-        ?>
-        <br>
-        <label for=autor>Autor(a)</label>
-        <?php
-            echo "<input type=text id=autor required name=autor value={$livro['autor']}>";
-        ?>        
-        <br>
-        <?php
-            echo "<input type=hidden id=idlivro name=idlivro value={$livro['idLivro']}>";
-        ?> 
-        <input type=submit name=botao value='Editar'>
-    </form>
+    <header>
+        <div class="logoDiv">
+            <a href="../index.php">
+                <img class="logo" src="../image/logo.png" alt="">
+                <h1>BookHub</h1>
+            </a>
+        </div>
+        <button class="btnVerTodos" onclick="window.location.href='paginaLivro.php?idLivro=<?php echo $idLivro; ?>'">Voltar à visualização</button>
+    </header>
+
+    <main>
+
+        <form action="editLivro.php" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="<?php echo $idLivro; ?>">
+
+            <div class="containerCapa">
+                <label>Capa do Livro:</label>
+                <input type="file" name="capa" accept="image/*">
+                <img src="<?php echo "../" . $livro['capa']; ?>" alt="Capa Atual" style="max-width: 150px;">
+            </div>
+
+            <div class="containerInfo">
+                <div class="infoHeader">
+                    <label for="titulo">Título:</label>
+                    <input type="text" id="titulo" name="titulo" value="<?php echo $livro['titulo']; ?>" required>
+                </div>
+
+                <div class="infoMain">
+                    <label for="autor">Autor(a):</label>
+                    <select id="autor" name="idAutor" required>
+                        <?php
+                        // Carrega todos os autores para o dropdown
+                        while($autor = $resultadoAutor->fetch_array()){
+                            $selected = $autor['id'] == $livro['idAutor'] ? "selected" : "";
+                            echo "<option value='".$autor['id']."' $selected>".$autor['nome']."</option>";
+                        }
+                        ?>
+                    </select>
+
+                    <label for="ano">Ano:</label>
+                    <input type="number" id="ano" name="ano" value="<?php echo $livro['ano']; ?>" required>
+
+                    <label for="emprestado">Status:</label>
+                    <select id="emprestado" name="emprestado">
+                        <option value="0" <?php if ($livro['emprestado'] == 0) echo "selected"; ?>>Livre</option>
+                        <option value="1" <?php if ($livro['emprestado'] == 1) echo "selected"; ?>>Emprestado</option>
+                    </select>
+                </div>
+
+                <div class="infoFooter">
+                    <button type="submit">Salvar Alterações</button>
+                </div>
+            </div>
+        </form>
+    </main>
 </body>
 </html>
