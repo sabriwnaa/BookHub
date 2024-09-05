@@ -28,35 +28,38 @@
 
         </div>
     </header>
+       
+    
     
     <main>
 
         <div class="containerLivros">
 
        
-
         <?php
    
             $db = new mysqli("localhost", "root", "", "bookhub");
-            $query = "SELECT capa FROM `livro`;";
+            $query = "SELECT id,capa FROM `livro`;";
             $resultado = $db->query($query);
 
             if ($resultado->num_rows > 0) {
-                // Percorre os resultados e exibe cada título
-            while($row = $resultado->fetch_assoc()) {
-                $caminhoImagem = $row['capa'];
-                
-                echo "<img class='capa' src='$caminhoImagem' </img>";
-               
-            }
+             // Percorre os resultados e exibe cada título
+                while($row = $resultado->fetch_assoc()) {
+                    $caminhoImagem = $row['capa'];
+                    $idLivro = $row['id'];
+                   
+                    echo " <a href='livro/paginaLivro.php?idLivro={$row['id']}'>";
+                    echo "<img class='capa' src='$caminhoImagem' </img>";
+                    echo "</a>";
+                }
             } else {
                 echo "Nenhum livro encontrado.";
-    }
+            }
+// Fecha a conexão com o banco de dados
+$db->close();
 
-    // Fecha a conexão com o banco de dados
-    $db->close();
-    
-    ?>
+?>
+        
 
     
         </div>

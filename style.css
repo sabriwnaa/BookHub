@@ -2,6 +2,8 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    text-decoration: none;
+    color: white;
 }
 
 header,footer,main{
@@ -15,12 +17,11 @@ html, body{
 }
 
 header{
+    width: 100%;
     display: flex;
     flex: 1;
     justify-content: space-between;
     align-items: center;
-
-    
     padding: 10px 20px;
     color: white;
 
@@ -177,4 +178,84 @@ footer{
 .active ~ .options .item:nth-child(2) {
     transform: translate(0, -8rem);
     transition-delay: .1s;
+}
+
+
+.containerLivroPage{
+    display: flex;
+    
+}
+
+.containerInfoLivroheader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerInfoLivroMain{
+    display: flex;
+    flex-direction: column;
+    
+    gap: 10px;
+}
+.containerInfoLivro{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+
+.mainLivro{
+    display: flex;
+    flex: 10;
+    gap: 20px;
+}
+
+.containerCapa{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    gap: 20px
+}
+
+.containerCapa img{
+    width: 100%;}
+    
+
+.containerInfo{
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.infoHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.infoMain{
+    font-size: 40px;
+    
+}
+.infofooter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnVerTodos{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: solid white;
+    border-radius: 30px;
+    padding: 10px;
+    cursor: pointer;
+
+  
 }
