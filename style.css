@@ -270,3 +270,127 @@ footer{
 
   
 }
+
+.autorIndividual{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px;
+}
+.mainAutores{
+    
+    display: flex;
+    gap: 20px;
+    flex: 20;
+}
+.listagemAutores{
+    display: flex;
+    flex: 3;
+    flex-direction: column;
+    gap: 10px;
+}
+.addAutor{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.addAutor input{
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    padding: 10px;
+}
+.addAutor button{
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.listagemAutores button{
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.listagemAutores button:hover{
+    background-color: #321128;
+    color: white;
+}
+.addAutor button:hover{
+    background-color: #321128;
+    color: white;
+}
+.listagemAutores .autorIndividual:hover{
+    background-color: #321128;
+    color: white;
+}
+
+.listagemAutores a{
+    text-decoration: none;
+    color: black;
+}
+
+.listagemAutores a:hover{
+    color: white;
+}
+
+.listagemAutores a:hover{
+    color: white;
+}
+
+.addAutor input::placeholder{
+    color: #321128;
+}
+
+.addAutor button{
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.addAutor button:hover{
+    background-color: #321128;
+    color: white;
+}
+
+.mainAutores{
+    min-height: 100%;
+}
+
+.addAutor{
+    display: flex;
+    flex-direction: column;
+}
+
+.autoresArquivados{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 30px;
+    width: 150px;
+   
+}
+.containerAutoresArquivados{
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    height: 100%;
+    gap: 10px
+}
+.direita{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
