@@ -7,56 +7,67 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <header>
-        <div class="logoDiv">
-            <a href="../index.php">
-           <img class="logo" src="../image/logo.png" alt="">
-            <h1>BookHub</h1>
-            </a>
-        </div>
+    <div class="container">
+        <header>
+            <div class="logoDiv">
+                <a href="../index.php">
+                <img class="logo" src="../image/logo.png" alt="">
+                <h1>BookHub</h1>
+                </a>
+            </div>
         
-    </header>
+        </header>
 
-    <main> 
+        <main class="mainAutores"> 
 
-        <div class="containerAutores">
+            <div class="containerAutores">
 
-            <?php
+                <?php
 
-                $db = new mysqli("localhost", "root", "", "bookhub");
-                $query = "SELECT nome FROM `autor`;";
-                $resultado = $db->query($query);
+                    $db = new mysqli("localhost", "root", "", "bookhub");
+                    $query = "SELECT nome FROM `autor`;";
+                    $resultado = $db->query($query);
+                    echo"<div class='listagemAutores'>";
 
-                if ($resultado->num_rows > 0) {
-                    while($row = $resultado->fetch_assoc()) {
-                        $nomeAutor = $row['nome'];
-                        echo "<h2 class='autor'>" .$nomeAutor. "</h2>";
-                    }
-                } else {
+                    if ($resultado->num_rows > 0) {
+                        while($row = $resultado->fetch_assoc()) {
+                            $nomeAutor = $row['nome'];
+                            echo" <div class='autorIndividual'>";
+                            echo "<h2 class='autor'>" .$nomeAutor. "</h2>";
+                            echo "<a href='#'> <img src='#'></a>";
+                            echo "</div>";
+                        }
+                    } else {
                     echo "<h2>Nenhum autor encontrado.</h2>";
-                }
-                $db->close();
+                    }
+                    $db->close();
+                    echo"</div>";
+                ?>
 
-            ?>
 
 
+   
 
+
+                <div class="direita">
+                    <div class="addAutor">
+                        <h2>Adicionar Autor(a)</h2>
+                        <form method='post' action='addAutor.php'>
+
+                            <label for=nome>Nome</label>
+                            <input type=text id=nome required name=nome>
+
+                            <a href="formAddAutor.php?addAutor" id="addAutor" name="addAutor"></a>
+            
+                        </form>
+                    </div>
+                    <div class="containerAutoresArquivados"><a class="autoresArquivados" href="#">Autores Arquivados</a></div>
+                </div>
         </div>
-
-
-        <div class="addAutor">
-            <h2>Adicionar Autor(a)</h2>
-            <form method='post' action='addAutor.php'>
-
-                <label for=nome>Nome</label>
-                <input type=text id=nome required name=nome>
                 
-            </form>
-        </div>
-
-
 
 
     </main>
+</div>
 </body>
 </html>
