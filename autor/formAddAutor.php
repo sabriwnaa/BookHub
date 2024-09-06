@@ -34,7 +34,8 @@
                             $nomeAutor = $row['nome'];
                             echo" <div class='autorIndividual'>";
                             echo "<h2 class='autor'>" .$nomeAutor. "</h2>";
-                            echo "<a href='#'> <img src='#'></a>";
+                            echo "<a href='#' class='editAutor'> <img src='#'>Edit</a>";
+                            echo "<a href='#' class='arquivAutor'> <img src='#'>Arq</a>";
                             echo "</div>";
                         }
                     } else {
