@@ -79,7 +79,11 @@
         </div>
         <div class="infoFooter">
             <a href="formEditLivro.php?idLivro=<?php echo $livro['id']; ?>">Editar</a>
+            <a href="arquivarLivro.php?idLivro=<?php echo $livro['id']; ?>&status=<?php echo ($livro['arquivado'] == 1) ? 0 : 1; ?>">
+                <?php echo ($livro['arquivado'] == 1) ? "Desarquivar" : "Arquivar"; ?>
+            </a>
         </div>
+
     </div>
 
         
