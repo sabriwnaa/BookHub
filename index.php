@@ -39,7 +39,7 @@
             <?php
     
                 $db = new mysqli("localhost", "root", "", "bookhub");
-                $query = "SELECT id,capa FROM `livro`;";
+                $query = "SELECT id,capa FROM `livro` WHERE arquivado = 0;";
                 $resultado = $db->query($query);
 
                 if ($resultado->num_rows > 0) {
