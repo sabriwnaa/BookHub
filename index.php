@@ -13,7 +13,8 @@
         .filtro-container {
             position: absolute;
             top: 100%; /* Ajusta a posição para ficar logo abaixo do botão */
-            left: 0;
+            width: 120px;
+            right: 10px;
             background-color: white;
             border: 1px solid #ddd;
             border-radius: 4px;
@@ -51,19 +52,21 @@
     <header>
         <div class="logoDiv">
             <a href="index.php">
-               <img class="logo" src="image/logo.png" alt="">
+               <img class="logo" src="image/logo.png">
                <h1>BookHub</h1>
             </a>
         </div>
         
         <div class="pesquisar"> 
-            <input class="inputPesquisar" type="text" placeholder="Pesquisar...">
-            <img class="loupe" src="image/loupe.png" alt="">
+            <form method="GET" action="index.php">
+                <input name="pesquisar" class="inputPesquisar" type="text" placeholder="Título do livro...">
+            </form>
+            <img class="loupe" src="image/loupe.png">
         </div>
 
         <div class="containerFiltro">
             <button class="btnFiltro" type="button" onclick="toggleFiltro()">
-                <img class="imgFilter" src="image/filterLinesW.png" alt="">
+                <img class="imgFilter" src="image/filterLinesW.png">
             </button>
 
             <div id="filtroDropdown" class="filtro-container">
@@ -126,8 +129,10 @@
             $autor = isset($_GET['autor']) ? $_GET['autor'] : 'todos';
             $ordenar = isset($_GET['ordenar']) ? $_GET['ordenar'] : 'titulo_asc';
 
+            $nomeLivro = isset($_GET['pesquisar']) ? $_GET['pesquisar'] : '';
+
             // Construção da query
-            $query = "SELECT id, capa FROM livro WHERE 1=1";
+            $query = "SELECT id, capa, emprestado, arquivado FROM livro WHERE 1=1";
 
             // Filtro por arquivado
             if ($arquivado != 'todos') {
@@ -160,6 +165,9 @@
                     break;
             }
 
+            // Filtro por pesquisa
+
+
             // Executa a query
             $resultado = $db->query($query);
 
@@ -170,7 +178,15 @@
                     $idLivro = $row['id'];
 
                     echo "<a href='livro/paginaLivro.php?idLivro={$row['id']}'>";
-                    echo "<img class='capa' src='$caminhoImagem' alt='Capa do Livro'>";
+
+                    if ($row['emprestado'] == 1 || $row['arquivado'] == 1) {
+                        echo "<img class='capa emprestado' src='$caminhoImagem' alt='Capa do Livro'>";
+                    }else{
+                        echo "<img class='capa' src='$caminhoImagem' alt='Capa do Livro'>";
+                    }
+                    
+
+
                     echo "</a>";
                 }
             } else {
@@ -198,8 +214,9 @@
         const filtroDropdown = document.getElementById('filtroDropdown')
 
         function toggleFiltro() {
-            filtroDropdown.style.display = filtroDropdown.style.display === 'none' ? 'flex' : 'none';
-        }
+        filtroDropdown.style.display = filtroDropdown.style.display === 'none' || filtroDropdown.style.display === '' ? 'block' : 'none';
+    }
+
 
         menu.onclick = () => menu.classList.toggle('active')
     </script>

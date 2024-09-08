@@ -394,3 +394,13 @@ footer{
     flex-direction: column;
     min-height: 100%;
 }
+.emprestado{
+    -webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	filter: gray; /* IE */
+    transition: .3s;
+}
+.emprestado:hover{
+    -webkit-filter: none;	
+	filter: none;
+}
