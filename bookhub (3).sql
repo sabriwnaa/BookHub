@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 06/09/2024 às 21:53
+-- Tempo de geração: 09/09/2024 às 00:25
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -29,21 +29,23 @@ USE `bookhub`;
 -- Estrutura para tabela `autor`
 --
 
+DROP TABLE IF EXISTS `autor`;
 CREATE TABLE `autor` (
   `id` int(11) NOT NULL,
-  `nome` varchar(120) NOT NULL
+  `nome` varchar(120) NOT NULL,
+  `arquivado` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `autor`
 --
 
-INSERT INTO `autor` (`id`, `nome`) VALUES
-(1, 'Clarice Lispector'),
-(2, 'V. E. Schwab'),
-(4, 'Bell'),
-(7, 'Ana'),
-(8, 'Camila');
+INSERT INTO `autor` (`id`, `nome`, `arquivado`) VALUES
+(1, 'Clarice Lispector', 0),
+(2, 'V. E. Schwab', 1),
+(4, 'Bell', 1),
+(7, 'Ana', 1),
+(8, 'Camila', 0);
 
 -- --------------------------------------------------------
 
@@ -51,6 +53,7 @@ INSERT INTO `autor` (`id`, `nome`) VALUES
 -- Estrutura para tabela `emprestimo`
 --
 
+DROP TABLE IF EXISTS `emprestimo`;
 CREATE TABLE `emprestimo` (
   `id` int(11) NOT NULL,
   `nomePessoa` varchar(120) NOT NULL,
@@ -65,6 +68,7 @@ CREATE TABLE `emprestimo` (
 -- Estrutura para tabela `livro`
 --
 
+DROP TABLE IF EXISTS `livro`;
 CREATE TABLE `livro` (
   `id` int(11) NOT NULL,
   `titulo` varchar(120) NOT NULL,
@@ -80,10 +84,11 @@ CREATE TABLE `livro` (
 --
 
 INSERT INTO `livro` (`id`, `titulo`, `idAutor`, `ano`, `capa`, `emprestado`, `arquivado`) VALUES
-(12, 'Tudo Sobre o Amor', 4, '1999', 'image/51zZpV5P2aL._AC_UF1000,1000_QL80_.jpg', 0, 1),
-(13, 'sla', 2, '2024', 'image/IMG_20240826_073853045_AE.jpg', 0, 1),
+(12, 'Tudo Sobre o Amor', 4, '1999', 'image/51zZpV5P2aL._AC_UF1000,1000_QL80_.jpg', 0, 0),
+(13, 'sla', 2, '2024', 'image/IMG_20240826_073853045_AE.jpg', 0, 0),
 (14, 'sa', 4, '21', 'image/1000013826-removebg-preview.png', 0, 1),
-(15, 'Novoherat', 1, '785', 'image/1.png', 1, 1);
+(15, 'Novoherat', 1, '785', 'image/1.png', 1, 0),
+(16, 'pesquisa', 4, '18291', 'image/51zZpV5P2aL._AC_UF1000,1000_QL80_.jpg', 0, 1);
 
 --
 -- Índices para tabelas despejadas
@@ -117,7 +122,7 @@ ALTER TABLE `livro`
 -- AUTO_INCREMENT de tabela `autor`
 --
 ALTER TABLE `autor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de tabela `emprestimo`
@@ -129,7 +134,7 @@ ALTER TABLE `emprestimo`
 -- AUTO_INCREMENT de tabela `livro`
 --
 ALTER TABLE `livro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Restrições para tabelas despejadas
