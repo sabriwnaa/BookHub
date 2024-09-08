@@ -1,20 +1,22 @@
-<?php
-// archiveAutor.php
-if (isset($_GET['id']) && !empty($_GET['id'])) {
-    $id = intval($_GET['id']); // Garantir que o ID é um inteiro
 
-    // Conexão com o banco de dados
-    $db = new mysqli("localhost", "root", "", "bookhub");
-
-    // Consulta para arquivar o autor
-    $query = "UPDATE autor SET arquivado = 1 WHERE id = $id";
-    if ($db->query($query)) {
-        header("Location: formAddAutor.php");
-    } else {
-        echo "Erro ao arquivar o autor.";
+    <?php
+    if (isset($_GET['idAutor']) && isset($_GET['status'])) {
+        $db = new mysqli("localhost", "root", "", "bookhub");
+        $idAutor = $_GET['idAutor'];
+        $novoStatus = $_GET['status'];
+    
+        $query = "UPDATE autor SET arquivado = $novoStatus WHERE id = $idAutor";
+        $resultado = $db->query($query);
+    
+        if ($resultado) {
+            header("Location: paginaLivro.php?idAutor=$idAutor");
+        } else {
+            echo "Erro ao arquivar/desarquivar o livro.";
+        }
+        
+        $db->close();
     }
-    $db->close();
-} else {
-    echo "ID do autor não fornecido.";
-}
-?>
+
+    header("Location: formAddautor.php");
+    ?>
+
