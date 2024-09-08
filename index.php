@@ -123,49 +123,53 @@
             // Conexão com o banco de dados
             $db = new mysqli("localhost", "root", "", "bookhub");
 
-            // Filtros
-            $arquivado = isset($_GET['arquivado']) ? $_GET['arquivado'] : 'todos';
-            $emprestado = isset($_GET['emprestado']) ? $_GET['emprestado'] : 'todos';
-            $autor = isset($_GET['autor']) ? $_GET['autor'] : 'todos';
-            $ordenar = isset($_GET['ordenar']) ? $_GET['ordenar'] : 'titulo_asc';
+           // Filtros
+$arquivado = isset($_GET['arquivado']) ? $_GET['arquivado'] : 'todos';
+$emprestado = isset($_GET['emprestado']) ? $_GET['emprestado'] : 'todos';
+$autor = isset($_GET['autor']) ? $_GET['autor'] : 'todos';
+$ordenar = isset($_GET['ordenar']) ? $_GET['ordenar'] : 'titulo_asc';
 
-            $nomeLivro = isset($_GET['pesquisar']) ? $_GET['pesquisar'] : '';
+$nomeLivro = isset($_GET['pesquisar']) ? $_GET['pesquisar'] : '';
 
-            // Construção da query
-            $query = "SELECT id, capa, emprestado, arquivado FROM livro WHERE 1=1";
+$query = "SELECT id, capa, emprestado, arquivado FROM livro WHERE 1=1";
 
-            // Filtro por arquivado
-            if ($arquivado != 'todos') {
-                $query .= " AND arquivado = $arquivado";
-            }
+// Filtro por arquivado
+if ($arquivado != 'todos') {
+    $query .= " AND arquivado = $arquivado";
+}
 
-            // Filtro por emprestado
-            if ($emprestado != 'todos') {
-                $query .= " AND emprestado = $emprestado";
-            }
+// Filtro por emprestado
+if ($emprestado != 'todos') {
+    $query .= " AND emprestado = $emprestado";
+}
 
-            // Filtro por autor
-            if ($autor != 'todos') {
-                $query .= " AND idAutor = $autor";
-            }
+// Filtro por autor
+if ($autor != 'todos') {
+    $query .= " AND idAutor = $autor";
+}
 
-            // Ordenação
-            switch ($ordenar) {
-                case 'titulo_asc':
-                    $query .= " ORDER BY titulo ASC";
-                    break;
-                case 'titulo_desc':
-                    $query .= " ORDER BY titulo DESC";
-                    break;
-                case 'ano_asc':
-                    $query .= " ORDER BY ano ASC";
-                    break;
-                case 'ano_desc':
-                    $query .= " ORDER BY ano DESC";
-                    break;
-            }
+// Filtro por pesquisa
+if (!empty($nomeLivro)) {
+    $nomeLivro = mysqli_real_escape_string($db, $nomeLivro);
+    $query .= " AND titulo LIKE '%{$nomeLivro}%'";
+}
 
-            // Filtro por pesquisa
+// Ordenação (essa parte precisa ser no final, depois de todos os filtros)
+switch ($ordenar) {
+    case 'titulo_asc':
+        $query .= " ORDER BY titulo ASC";
+        break;
+    case 'titulo_desc':
+        $query .= " ORDER BY titulo DESC";
+        break;
+    case 'ano_asc':
+        $query .= " ORDER BY ano ASC";
+        break;
+    case 'ano_desc':
+        $query .= " ORDER BY ano DESC";
+        break;
+}
+
 
 
             // Executa a query

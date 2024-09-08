@@ -1,0 +1,1 @@
+No CRUD não vai precisar excluir, pois vai tudo para o histórico de empréstimos
