@@ -38,10 +38,10 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         <main>
             <div class="containerEditAutor">
                 <h2>Editar Autor(a)</h2>
-                <form method='post' action='editAutor.php'>
-                    <input type="hidden" name="id" value="<?php echo htmlspecialchars($autor['id']); ?>">
+                <form method='post' action='editAutor.php?id=<?php echo htmlspecialchars($autor['id']); ?> && nome='<?php echo htmlspecialchars($['nome']); ?>'>
+                    
                     <label for="nome">Nome</label>
-                    <input type="text" id="nome" name="nome" value="<?php echo htmlspecialchars($autor['nome']); ?>" required>
+                    <input type="text" id="nome" name="nome"?>" required>
                     <button type="submit">Atualizar</button>
                 </form>
             </div>

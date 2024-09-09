@@ -276,7 +276,7 @@ footer{
     display: flex;
     align-items: center;
     gap: 20px;
-    background-color: rgb(35, 32, 32);
+    background-color: rgba(255, 255, 255, 0.568);
     border-radius: 20px;
     padding: 20px;
 }
@@ -311,6 +311,10 @@ footer{
     background-color: white;
     padding: 10px;
     cursor: pointer;
+}
+
+.listagemAutores{
+    flex-direction: column;
 }
 
 .listagemAutores button{

@@ -29,6 +29,15 @@
     <title>Adicionar livro</title>
     <link rel="stylesheet" href="../styleEditLivro.css">
     <link rel="stylesheet" href="../styleGlobal.css">
+    <script>
+        // Verifica se o parâmetro 'erro' está presente na URL
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('erro') && urlParams.get('erro') === '1') {
+                alert('Nome do Livro já Existe!');
+            }
+        };
+    </script>
 </head>
 <body>
     <header>

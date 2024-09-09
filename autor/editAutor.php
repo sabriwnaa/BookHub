@@ -1,8 +1,8 @@
 <?php
 // updateAutor.php
-if (isset($_POST) && !empty($_POST)) {
-    $id = intval($_POST['id']);
-    $nome = $db->real_escape_string($_POST['nome']); // Protege contra SQL Injection
+if (isset($_GET) && !empty($_GET)) {
+    $id = intval($_GET['id']);
+    $nome = 
 
     // Conexão com o banco de dados
     $db = new mysqli("localhost", "root", "", "bookhub");

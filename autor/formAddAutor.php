@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autores</title>
-    <link rel="stylesheet" href="../styleGlobal.css">
-    <link rel="stylesheet" href="../styleAddAutor.css">
+    <link rel="stylesheet" href="../style.css">
+   
 </head>
 <body>
     <div class="container">
@@ -18,13 +18,14 @@
             </div>
         </header>
 
+        <div class="listagemAutores">
         <main class="mainAutores"> 
-          
+            <div class="listagemAutores">
                 <?php
                     $db = new mysqli("localhost", "root", "", "bookhub");
                     $query = "SELECT * FROM autor";
                     $resultado = $db->query($query);
-                    echo "<div class='listagemAutores'>";
+                    
                     // Verifica se houve resultados
                     if ($resultado->num_rows > 0) {
                         // Faz a listagem dos autores
@@ -37,7 +38,7 @@
                             echo "<div class='autorIndividual'>";
                     
                             // Um form para editar o nome do autor
-                            echo "<form method='post' action='updateAutor.php' style='display: inline;'>";
+                            echo "<form method='post' action='editAutor.php' style='display: inline;'>";
                             // ID escondido
                             echo "<input type='hidden' name='idAutor' value='$idAutor'>";
                             echo "<input type='text' name='nome' value='$nomeAutor' class='editNome'>";
@@ -48,8 +49,9 @@
                             $linkTexto = ($arquivado == 1) ? 'Desarquivar' : 'Arquivar';
                             $novoStatus = ($arquivado == 1) ? 0 : 1;
                             echo "<a href='arquivarAutor.php?idAutor=$idAutor&status=$novoStatus'>$linkTexto</a>";
-                    
                             echo "</div>";
+                    
+                            
                         }
                     } else {
                         echo "<h2>Nenhum autor encontrado.</h2>";
@@ -57,7 +59,7 @@
                     
                     $db->close();
                     ?>
-                    
+            </div>
 
                 <div class="direita">
                     <div class="addAutor">
