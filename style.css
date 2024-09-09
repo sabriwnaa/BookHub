@@ -23,7 +23,7 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    color: black;
+    color: rgb(0, 0, 0);
 
 }
 
@@ -127,6 +127,7 @@ footer{
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
+    gap: 20px;
     
 }
 
@@ -159,11 +160,11 @@ footer{
 }
 
 .capa{
-    margin: 10px;
-    width: 150px;
+    
+    width: 160px;
     height: 100%;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 15px;
     transition: 200ms;
     cursor: pointer;
     

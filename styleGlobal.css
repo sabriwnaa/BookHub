@@ -1,0 +1,120 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: black;
+}
+
+header{
+    background-color: #6e0d51;
+}
+
+html, body{
+    height: 100vh;
+    
+    width: 100%;
+}
+
+header{
+    width: 100%;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: rgb(0, 0, 0);
+
+}
+
+.logoDiv{
+    width: 300px;
+    display: flex;
+    
+    
+}
+
+.logoDiv a{
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    gap: 20px;
+}
+
+main{
+    flex: 10;
+    height: 100%;
+    
+}
+
+footer{
+    display: flex;
+    flex: 0.1;
+    justify-content: center;
+    align-items: center;
+    
+    padding: 10px 20px;
+    color: black;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+
+}
+
+.logo{
+    width: 50px;
+}
+.pesquisar{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.loupe{
+    width: 25px;
+}
+
+.logoDiv{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+
+}
+
+.inputPesquisar{
+    border: solid white;
+    background-color: #6e0d51;
+    color: black;
+    padding: 2px;
+    font-size: 15px;
+    border-radius: 20px;
+}
+
+.btnFiltro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    border-radius: 100%;
+    padding: 10px;
+  
+}
+.btnFiltro:hover{
+    background-color: #321128;
+
+    border: none;
+    
+  
+}
+
+.imgFilter{
+    width: 25px;
+}

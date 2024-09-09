@@ -1,0 +1,101 @@
+/* Reset básico para remover margens e paddings padrão */
+
+header .btnNSalvar {
+    background-color: white;
+    color: #0066cc;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+header .btnNSalvar:hover {
+    background-color: #e0e0e0;
+}
+
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.containerCapa {
+    flex-basis: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.containerCapa img {
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.containerInfo {
+    flex-basis: 70%;
+}
+
+.infoHeader, .infoMain, .infoFooter {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="number"], select, input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, select:focus, input[type="file"]:focus {
+    outline: none;
+    border-color: #db5959;
+    background-color: #e0e0e0;
+}
+
+button[type="submit"] {
+    background-color: #0066cc;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #004da8;
+}
+
+
+/* Estilos responsivos dependendo do tamanho da tela,  */
+@media (max-width: 768px) {
+    form {
+        flex-direction: column;
+    }
+
+    .containerCapa, .containerInfo {
+        flex-basis: 100%;
+    }
+}

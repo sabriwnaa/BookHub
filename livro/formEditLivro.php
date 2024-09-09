@@ -27,7 +27,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar livro</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../styleEditLivro.css">
+    <link rel="stylesheet" href="../styleGlobal.css">
 </head>
 <body>
     <header>
@@ -37,7 +38,7 @@
                 <h1>BookHub</h1>
             </a>
         </div>
-        <button class="btnVerTodos" onclick="window.location.href='paginaLivro.php?idLivro=<?php echo $idLivro; ?>'">Voltar à visualização</button>
+        <button class="btnNSalvar" onclick="window.location.href='paginaLivro.php?idLivro=<?php echo $idLivro; ?>'">Voltar sem Salvar</button>
     </header>
 
     <main>
@@ -45,10 +46,10 @@
         <form action="editLivro.php" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?php echo $idLivro; ?>">
 
-            <div class="containerCapa">
+            <div class="containerCapa"><img src="<?php echo "../" . $livro['capa']; ?>" alt="Capa Atual" style="max-width: 150px;">
                 <label>Capa do Livro:</label>
                 <input type="file" name="capa" accept="image/*">
-                <img src="<?php echo "../" . $livro['capa']; ?>" alt="Capa Atual" style="max-width: 150px;">
+                
             </div>
 
             <div class="containerInfo">
@@ -66,6 +67,7 @@
                             $selected = $autor['id'] == $livro['idAutor'] ? "selected" : "";
                             echo "<option value='".$autor['id']."' $selected>".$autor['nome']."</option>";
                         }
+                        
                         ?>
                     </select>
 
