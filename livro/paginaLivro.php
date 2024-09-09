@@ -70,20 +70,54 @@
                 echo $autor['nome']; 
                 ?></p>
             <p>Ano: <?php   echo $livro['ano']; ?></p>
-            <p>status: <?php   
-            if ($livro['emprestado'] == 0){
-                echo "livre";
-            }else{
-                echo "emprestado";
-            }; ?></p>
+            <p>Arquivado: 
+                <?php  
+            
+                    if ($livro['arquivado'] == 0){
+                        echo "Arquivado";
+                    }else{
+                        echo "Não arquivado";
+                    };
+                ?>
+            <p>Emprestado:
+            <?php 
+                if ($livro['emprestado'] == 0){
+                    echo "livre";
+                }else{
+                    echo "emprestado";
+                }; 
+            ?></p>
+            
             
         </div>
         <div class="infoFooter">
             
-        
+                
             <a href="formEditLivro.php?idLivro=<?php echo $livro['id']; ?>">Editar</a>
-            <a href="arquivarLivro.php?idLivro=<?php echo $livro['id']; ?>&status=<?php echo ($livro['arquivado'] == 1) ? 0 : 1; ?>">
-                <?php echo ($livro['arquivado'] == 1) ? "Desarquivar" : "Arquivar"; ?>
+
+            <?php
+                if ($livro['emprestado'] == 0) {
+                    // Corrigindo a interpolação de variáveis e uso de aspas
+                    $idLivro = $livro['id'];
+                    $status = ($livro['arquivado'] == 1) ? 0 : 1;
+                    $texto = ($livro['arquivado'] == 1) ? 'Desarquivar' : 'Arquivar';
+
+                    echo "<a href='arquivarLivro.php?idLivro=$idLivro&status=$status'>$texto</a>";
+                }
+            ?>
+
+            <?php
+                if ($livro['arquivado'] == 0) {
+                    // Corrigindo a interpolação de variáveis e uso de aspas
+                    $idLivro = $livro['id'];
+                    $status = ($livro['emprestado'] == 1) ? 0 : 1;
+                    $texto = ($livro['emprestado'] == 1) ? 'Devolver' : 'Emprestar';
+
+                    echo "<a href='emprestarLivro.php?idLivro=$idLivro&status=$status'>$texto</a>";
+                }
+            ?>
+
+
             </a>
         </div>
 
