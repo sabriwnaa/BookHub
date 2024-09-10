@@ -28,10 +28,10 @@ if (isset($_POST) && !empty($_POST)) {
         move_uploaded_file($_FILES['capa']['tmp_name'], $destinoCapa);
 
         // Atualiza com a nova capa
-        $query = "UPDATE livro SET titulo = '{$_POST['titulo']}', ano = {$_POST['ano']}, idAutor = {$_POST['idAutor']}, capa = '{$caminhoTeste}', emprestado = {$_POST['emprestado']} WHERE id = {$_POST['id']}";
+        $query = "UPDATE livro SET titulo = '{$_POST['titulo']}', ano = {$_POST['ano']}, idAutor = {$_POST['idAutor']}, capa = '{$caminhoTeste}' WHERE id = {$_POST['id']}";
     } else {
         // Atualiza os dados sem modificar a capa
-        $query = "UPDATE livro SET titulo = '{$_POST['titulo']}', ano = {$_POST['ano']}, idAutor = {$_POST['idAutor']}, emprestado = {$_POST['emprestado']} WHERE id = {$_POST['id']}";
+        $query = "UPDATE livro SET titulo = '{$_POST['titulo']}', ano = {$_POST['ano']}, idAutor = {$_POST['idAutor']} WHERE id = {$_POST['id']}";
     }
 
     // Executa a consulta de atualização

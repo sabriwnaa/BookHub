@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 10/09/2024 às 20:38
+-- Tempo de geração: 10/09/2024 às 21:12
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -31,25 +31,27 @@ USE `bookhub`;
 
 CREATE TABLE `autor` (
   `id` int(11) NOT NULL,
-  `nome` varchar(120) NOT NULL
+  `nome` varchar(120) NOT NULL,
+  `arquivado` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `autor`
 --
 
-INSERT INTO `autor` (`id`, `nome`) VALUES
-(1, 'Clarice Lispector'),
-(9, 'Bell Hooks'),
-(10, 'Rainer Maria Rilke'),
-(11, 'Machado de Assis'),
-(12, 'Jorge Amado'),
-(13, 'George Orwell'),
-(14, 'Jane Austen'),
-(15, 'Conceição Evaristo'),
-(16, 'Adélia Prado'),
-(17, 'Lima Barreto'),
-(18, 'Hilda Hilst');
+INSERT INTO `autor` (`id`, `nome`, `arquivado`) VALUES
+(1, 'Clarice Lispector', 1),
+(9, 'Bell Hooks', 0),
+(10, 'Rainer Maria Rilke', 0),
+(11, 'Machado de Assis', 0),
+(12, 'Jorge Amado', 0),
+(13, 'George Orwell', 0),
+(14, 'Jane Austen', 0),
+(15, 'Conceição Evaristo', 1),
+(16, 'Adélia Prado', 0),
+(17, 'Lima Barreto', 0),
+(18, 'Hilda Hilst', 0),
+(19, 'Sabrina Hahn Melo', 0);
 
 -- --------------------------------------------------------
 
@@ -103,7 +105,7 @@ INSERT INTO `livro` (`id`, `titulo`, `idAutor`, `ano`, `capa`, `emprestado`, `ar
 (30, 'Memórias Póstumas de Brás Cubas', 11, '1881', 'image/815u+SBDpJL._AC_UF1000,1000_QL80_.jpg', 0, 0),
 (31, 'Gabriela, Cravo e Canela', 12, '1968', 'image/81IyZdXmUqL._AC_UF1000,1000_QL80_.jpg', 0, 0),
 (32, 'Capitães de Areia', 12, '1961', 'image/81t7altQZxL._AC_UF1000,1000_QL80_.jpg', 0, 0),
-(33, '1984', 13, '1949', 'image/819js3EQwbL._AC_UF1000,1000_QL80_.jpg', 0, 0),
+(33, '1984', 13, '1949', 'image/819js3EQwbL._AC_UF1000,1000_QL80_.jpg', 0, 1),
 (34, 'A Revolução dos Bichos', 13, '1945', 'image/91BsZhxCRjL._AC_UF1000,1000_QL80_.jpg', 0, 0),
 (35, 'Orgulho e Preconceito', 14, '1813', 'image/71Xta4Nf7uL._AC_UF1000,1000_QL80_.jpg', 0, 0),
 (36, 'Razão e Sensibilidade', 14, '1811', 'image/81eN74IRg4L._AC_UF1000,1000_QL80_.jpg', 0, 0),
@@ -149,7 +151,7 @@ ALTER TABLE `livro`
 -- AUTO_INCREMENT de tabela `autor`
 --
 ALTER TABLE `autor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de tabela `emprestimo`

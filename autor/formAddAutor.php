@@ -23,32 +23,30 @@
             <div class="listagemAutores">
                 <?php
                     $db = new mysqli("localhost", "root", "", "bookhub");
-                    $query = "SELECT * FROM autor";
+                    $query = "SELECT * FROM autor WHERE arquivado = 0";
                     $resultado = $db->query($query);
                     
                     // Verifica se houve resultados
                     if ($resultado->num_rows > 0) {
                         // Faz a listagem dos autores
                         while($row = $resultado->fetch_assoc()) {
-                            $nomeAutor = htmlspecialchars($row['nome']);
+                            $nomeAutor = $row['nome'];
                             $idAutor = $row['id'];
                             $arquivado = $row['arquivado'];
                     
                             // Cria uma div individual para cada autor
                             echo "<div class='autorIndividual'>";
-                    
+                            echo "<h2>" . $row['nome'] . "</h2>";
+
                             // Um form para editar o nome do autor
-                            echo "<form method='post' action='editAutor.php' style='display: inline;'>";
+                            //echo "<form method='post' action='editAutor.php' style='display: inline;'>";
                             // ID escondido
-                            echo "<input type='hidden' name='idAutor' value='$idAutor'>";
-                            echo "<input type='text' name='nome' value='$nomeAutor' class='editNome'>";
-                            echo "<button type='submit' class='saveButton'>Salvar</button>";
-                            echo "</form>";
+                           // echo "<input type='hidden' name='idAutor' value='$idAutor'>";
+                            //echo "<input type='text' name='nome' value='$nomeAutor' class='editNome'>";
+                           // echo "<button type='submit' class='saveButton'>Salvar</button>";
+                            //echo "</form>";
                     
-                            // Botão de arquivar/desarquivar
-                            $linkTexto = ($arquivado == 1) ? 'Desarquivar' : 'Arquivar';
-                            $novoStatus = ($arquivado == 1) ? 0 : 1;
-                            echo "<a href='arquivarAutor.php?idAutor=$idAutor&status=$novoStatus'>$linkTexto</a>";
+                            echo "<a href='arquivarAutor.php?idAutor=$idAutor&status=1'>Arquivar</a>";
                             echo "</div>";
                     
                             

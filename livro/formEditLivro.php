@@ -83,11 +83,6 @@
                     <label for="ano">Ano:</label>
                     <input type="number" id="ano" name="ano" value="<?php echo $livro['ano']; ?>" required>
 
-                    <label for="emprestado">Status:</label>
-                    <select id="emprestado" name="emprestado">
-                        <option value="0" <?php if ($livro['emprestado'] == 0) echo "selected"; ?>>Livre</option>
-                        <option value="1" <?php if ($livro['emprestado'] == 1) echo "selected"; ?>>Emprestado</option>
-                    </select>
                 </div>
 
                 <div class="infoFooter">
