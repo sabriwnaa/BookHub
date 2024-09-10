@@ -17,7 +17,7 @@
             <h1>BookHub</h1>
             </a>
         </div>
-      <button class="btnVerTodos">Ver todos</button>
+      <a href="../index.php" class="btnVerTodos">Ver todos</a>
     </header>
 
     

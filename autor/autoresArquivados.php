@@ -34,8 +34,10 @@ $resultado = $db->query($query);
                 <?php
                 if ($resultado->num_rows > 0) {
                     while ($row = $resultado->fetch_assoc()) {
+                        $idAutor = $row['id'];
                         echo "<div class='autorIndividual'>";
                         echo "<h2 class='autor'>" . htmlspecialchars($row['nome']) . "</h2>";
+                        echo "<a href='arquivarAutor.php?idAutor=$idAutor&status=0'>Desarquivar</a>";
                         echo "</div>";
                     }
                 } else {
