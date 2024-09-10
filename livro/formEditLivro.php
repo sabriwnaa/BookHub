@@ -15,7 +15,7 @@
         }
 
         // Pega os autores para o dropdown
-        $queryAutor = "SELECT id, nome FROM `autor`;";
+        $queryAutor = "SELECT id, nome FROM `autor` WHERE arquivado = 0;";
         $resultadoAutor = $db->query($queryAutor);
     } else {
         echo "ID do livro não foi fornecido ou é inválido.";

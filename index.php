@@ -125,7 +125,7 @@
             $db = new mysqli("localhost", "root", "", "bookhub");
 
            // Filtros
-$arquivado = isset($_GET['arquivado']) ? $_GET['arquivado'] : 'todos';
+$arquivado = isset($_GET['arquivado']) ? $_GET['arquivado'] : '0';
 $emprestado = isset($_GET['emprestado']) ? $_GET['emprestado'] : 'todos';
 $autor = isset($_GET['autor']) ? $_GET['autor'] : 'todos';
 $ordenar = isset($_GET['ordenar']) ? $_GET['ordenar'] : 'titulo_asc';
