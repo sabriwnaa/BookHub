@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11/09/2024 às 01:15
+-- Tempo de geração: 11/09/2024 às 01:30
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -51,8 +51,9 @@ INSERT INTO `autor` (`id`, `nome`, `arquivado`) VALUES
 (16, 'Adélia Prado', 0),
 (17, 'Lima Barreto', 0),
 (18, 'Hilda Hilst', 0),
-(19, 'Sabrina Hahn Melo', 0),
-(20, 'Gabriel Klafke', 1);
+(19, 'Sabrina Hahn Melo', 1),
+(20, 'Gabriel Klafke', 1),
+(21, 'Vinícius Hartmann Ferreira', 0);
 
 -- --------------------------------------------------------
 
@@ -124,7 +125,8 @@ INSERT INTO `livro` (`id`, `titulo`, `idAutor`, `ano`, `capa`, `arquivado`) VALU
 (42, 'Triste Fim de Policarpo Quaresma', 17, '1915', 'image/91dS9YlzIWS._AC_UF1000,1000_QL80_.jpg', 0),
 (43, 'O Cemitério dos Vivos', 17, '1950', 'image/41187szsM0L._SY780_.jpg', 0),
 (44, 'A Obscena Senhora D', 18, '1990', 'image/91txP8kXKGL._AC_UF1000,1000_QL80_.jpg', 0),
-(45, 'As Aves da Noite: O visitante', 18, '1999', 'image/hilda_hilst_teatro_completo_1_9788525437617_hd.jpg', 0);
+(45, 'As Aves da Noite: O visitante', 18, '1999', 'image/hilda_hilst_teatro_completo_1_9788525437617_hd.jpg', 0),
+(46, 'Meu pai robô', 21, '2023', 'image/Captura de tela 2024-09-10 202804.png', 0);
 
 --
 -- Índices para tabelas despejadas
@@ -158,7 +160,7 @@ ALTER TABLE `livro`
 -- AUTO_INCREMENT de tabela `autor`
 --
 ALTER TABLE `autor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de tabela `emprestimo`
@@ -170,7 +172,7 @@ ALTER TABLE `emprestimo`
 -- AUTO_INCREMENT de tabela `livro`
 --
 ALTER TABLE `livro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- Restrições para tabelas despejadas
