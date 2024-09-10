@@ -60,7 +60,7 @@
 
         $nomePessoa = $emprestimo['nomePessoa'];
         $emailPessoa = $emprestimo['emailPessoa'];
-       
+        $dataEmprestimo = $emprestimo['dataEmprestimo'];
         
 
         // Fecha a conexão com o banco de dados
@@ -138,8 +138,9 @@
                         $emailPessoa = $emprestimo['emailPessoa'];
                     
                         echo "<a href='../emprestimo/devolverLivro.php?idLivro=$idLivro'>Devolver</a>";
-                        echo "<p>Emprestado por: ".$nomePessoa."</p>";
+                        echo "<p>Emprestado para: ".$nomePessoa."</p>";
                         echo "<p>Email: ".$emailPessoa."</p>";
+                        echo "<p>Data do emprestimo: ".$dataEmprestimo."</p>";
                     } else {
                         echo "<a href='../emprestimo/formEmprestarLivro.php?idLivro=$idLivro'>Emprestar</a>";
                     }
