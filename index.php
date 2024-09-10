@@ -126,13 +126,14 @@
 
            // Filtros
 $arquivado = isset($_GET['arquivado']) ? $_GET['arquivado'] : '0';
-$emprestado = isset($_GET['emprestado']) ? $_GET['emprestado'] : 'todos';
+//FAZER EMPRESTADO PARA O FILTRO
+//$emprestado = isset($_GET['emprestado']) ? $_GET['emprestado'] : 'todos';
 $autor = isset($_GET['autor']) ? $_GET['autor'] : 'todos';
 $ordenar = isset($_GET['ordenar']) ? $_GET['ordenar'] : 'titulo_asc';
 
 $nomeLivro = isset($_GET['pesquisar']) ? $_GET['pesquisar'] : '';
 
-$query = "SELECT id, capa, emprestado, arquivado FROM livro WHERE 1=1";
+$query = "SELECT id, capa, arquivado FROM livro WHERE 1=1";
 
 // Filtro por arquivado
 if ($arquivado != 'todos') {
@@ -140,9 +141,9 @@ if ($arquivado != 'todos') {
 }
 
 // Filtro por emprestado
-if ($emprestado != 'todos') {
-    $query .= " AND emprestado = $emprestado";
-}
+//if ($emprestado != 'todos') {
+//    $query .= " AND emprestado = $emprestado";
+//}
 
 // Filtro por autor
 if ($autor != 'todos') {
@@ -184,8 +185,8 @@ switch ($ordenar) {
 
                     echo "<a href='livro/paginaLivro.php?idLivro={$row['id']}'>";
 
-                    if ($row['emprestado'] == 1 || $row['arquivado'] == 1) {
-                        echo "<img class='capa emprestado' src='$caminhoImagem' alt='Capa do Livro'>";
+                    if ($row['arquivado'] == 1) {
+                        echo "<img class='capa arquivado' src='$caminhoImagem' alt='Capa do Livro'>";
                     }else{
                         echo "<img class='capa' src='$caminhoImagem' alt='Capa do Livro'>";
                     }

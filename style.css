@@ -400,13 +400,13 @@ footer{
     min-height: 100%;
 }
 
-.emprestado{
+.arquivado{
     -webkit-filter: grayscale(100%);
 	filter: grayscale(100%);
 	filter: gray; /* IE */
     transition: .3s;
 }
-.emprestado:hover{
+.arquivado:hover{
     -webkit-filter: none;	
 	filter: none;
 }
