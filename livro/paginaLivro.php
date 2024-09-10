@@ -9,10 +9,6 @@
     
 </head>
 <body>
-    
-</body>
-</html>
-
 <div class="container">
     <header>
         <div class="logoDiv">
@@ -34,17 +30,42 @@
         $db = new mysqli("localhost", "root", "", "bookhub");
         $idLivro = $_GET['idLivro'];
         
-    
-        $query = "SELECT * FROM `livro` WHERE id = ".$idLivro.";";
-        $resultado = $db->query($query);
-
-        $livro = $resultado->fetch_array();
-       
         
+    
+        $queryLivro = "SELECT * FROM `livro` WHERE id = ".$idLivro.";";
+        $resultadoLivro = $db->query($queryLivro);
+
+        $livro = $resultadoLivro->fetch_array();
+
+
+        //query para testar se existe empréstimo com o id do livro
+        $queryTesteEmprestimo = "SELECT COUNT(*) FROM emprestimo WHERE idLivro = ".$idLivro.";";
+        $resultadoTesteEmprestimo = $db->query($queryTesteEmprestimo);
+
+        $testeEmprestimo = $resultadoTesteEmprestimo->fetch_array()[0];
+       
+        if($testeEmprestimo > 0){
+            $statusEmprestimo = true;
+        }else{
+            $statusEmprestimo = false;
+        }
+
+
+        //query para pegar emprestimo
+        if($statusEmprestimo){
+        $queryEmprestimo = "SELECT * FROM emprestimo WHERE idLivro = ".$idLivro.";";
+        $resultadoEmprestimo = $db->query($queryEmprestimo);
+
+        $emprestimo = $resultadoEmprestimo->fetch_array();
+
+        $nomePessoa = $emprestimo['nomePessoa'];
+        $emailPessoa = $emprestimo['emailPessoa'];
+       
         
 
         // Fecha a conexão com o banco de dados
         $db->close();
+        }
         }
     ?>
     
@@ -73,15 +94,16 @@
             <p>Arquivado: 
                 <?php  
             
-                    if ($livro['arquivado'] == 0){
+                    if ($livro['arquivado'] == 1){
                         echo "Arquivado";
                     }else{
                         echo "Não arquivado";
                     };
                 ?>
+            </p>
             <p>Emprestado:
             <?php 
-                if ($livro['emprestado'] == 0){
+                if ($statusEmprestimo == false){
                     echo "livre";
                 }else{
                     echo "emprestado";
@@ -96,8 +118,8 @@
             <a href="formEditLivro.php?idLivro=<?php echo $livro['id']; ?>">Editar</a>
 
             <?php
-                if ($livro['emprestado'] == 0) {
-                    // Corrigindo a interpolação de variáveis e uso de aspas
+                if ($statusEmprestimo  == false) {
+                    
                     $idLivro = $livro['id'];
                     $status = ($livro['arquivado'] == 1) ? 0 : 1;
                     $texto = ($livro['arquivado'] == 1) ? 'Desarquivar' : 'Arquivar';
@@ -107,13 +129,24 @@
             ?>
 
             <?php
+            
                 if ($livro['arquivado'] == 0) {
-                    // Corrigindo a interpolação de variáveis e uso de aspas
-                    $idLivro = $livro['id'];
-                    $status = ($livro['emprestado'] == 1) ? 0 : 1;
-                    $texto = ($livro['emprestado'] == 1) ? 'Devolver' : 'Emprestar';
+                    
+                    
+                    if ($statusEmprestimo == true && isset($emprestimo)) {
+                        $nomePessoa = $emprestimo['nomePessoa'];
+                        $emailPessoa = $emprestimo['emailPessoa'];
+                    
+                        echo "<a href='../emprestimo/devolverLivro.php?idLivro=$idLivro'>Devolver</a>";
+                        echo "<p>Emprestado por: ".$nomePessoa."</p>";
+                        echo "<p>Email: ".$emailPessoa."</p>";
+                    } else {
+                        echo "<a href='../emprestimo/formEmprestarLivro.php?idLivro=$idLivro'>Emprestar</a>";
+                    }
+                    
+                    
 
-                    echo "<a href='emprestarLivro.php?idLivro=$idLivro&status=$status'>$texto</a>";
+                  
                 }
             ?>
 
@@ -127,6 +160,10 @@
     </main>
 
 </div>
+</body>
+</html>
+
+
 
 
 
