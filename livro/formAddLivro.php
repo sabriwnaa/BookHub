@@ -45,7 +45,7 @@
                 die("Conexão falhou: " . $db->connect_error);
             }
 
-            $query = "SELECT id, nome FROM autor WHERE arquivado == 0";
+            $query = "SELECT id, nome FROM autor WHERE arquivado = 0";
             $resultado = $db->query($query);
 
             if ($resultado->num_rows > 0) {
