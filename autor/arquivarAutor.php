@@ -1,22 +1,23 @@
+<?php
+if (isset($_GET['idAutor']) && isset($_GET['status'])) {
+    $db = new mysqli("localhost", "root", "", "bookhub");
 
-    <?php
-    if (isset($_GET['idAutor']) && isset($_GET['status'])) {
-        $db = new mysqli("localhost", "root", "", "bookhub");
-        $idAutor = $_GET['idAutor'];
-        $novoStatus = $_GET['status'];
-    
-        $query = "UPDATE autor SET arquivado = $novoStatus WHERE id = $idAutor";
-        $resultado = $db->query($query);
-    
-        if ($resultado) {
-            header("Location: paginaLivro.php?idAutor=$idAutor");
-        } else {
-            echo "Erro ao arquivar/desarquivar o livro.";
-        }
-        
-        $db->close();
+    $idAutor = intval($_GET['idAutor']);
+    $novoStatus = intval($_GET['status']);
+
+    // Atualiza o status do autor no banco de dados
+    $query = "UPDATE autor SET arquivado = $novoStatus WHERE id = $idAutor";
+    $resultado = $db->query($query);
+
+    if ($resultado) {
+        header("Location: formAddAutor.php");
+        exit();
+    } else {
+        echo "Erro ao arquivar/desarquivar o autor.";
     }
 
-    header("Location: formAddautor.php");
-    ?>
-
+    $db->close();
+} else {
+    echo "Parâmetros não fornecidos.";
+}
+?>

@@ -23,6 +23,7 @@
             <div class="listagemAutores">
                 <?php
                     $db = new mysqli("localhost", "root", "", "bookhub");
+                    $editId = isset($_GET['editId']) ? intval($_GET['editId']) : 0;
                     $query = "SELECT * FROM autor WHERE arquivado = 0";
                     $resultado = $db->query($query);
                     
@@ -34,20 +35,32 @@
                             $idAutor = $row['id'];
                             $arquivado = $row['arquivado'];
                     
-                            // Cria uma div individual para cada autor
-                            echo "<div class='autorIndividual'>";
-                            echo "<h2>" . $row['nome'] . "</h2>";
+                            if ($editId == $idAutor) {
+                                // Exibir formulário de edição se o ID do autor for igual ao editId
+                                echo "<div class='autorIndividual'>";
+                                echo "<form method='POST' action='editAutor.php'>";
+                                echo "<input type='hidden' name='id' value='$idAutor'>";
+                                echo "<input type='text' name='nome' value='$nomeAutor'>";
+                                echo "<input type='submit' value='Salvar'>";
+                                echo "</form>";
+                                echo "<a href='arquivarAutor.php?idAutor=$idAutor&status=1'>Arquivar</a>";
+                                echo "</div>";
+                            } else {
+                                // Exibir nome do autor e botões
+                                echo "<div class='autorIndividual'>";
+                                echo "<h2>" . $nomeAutor . "</h2>";
+                                echo "<a href='?editId=$idAutor'>Editar</a> ";
+                                echo "<a href='arquivarAutor.php?idAutor=$idAutor&status=1'>Arquivar</a>";
+                                echo "</div>";
+                            }
 
-                            // Um form para editar o nome do autor
-                            //echo "<form method='post' action='editAutor.php' style='display: inline;'>";
-                            // ID escondido
-                           // echo "<input type='hidden' name='idAutor' value='$idAutor'>";
-                            //echo "<input type='text' name='nome' value='$nomeAutor' class='editNome'>";
-                           // echo "<button type='submit' class='saveButton'>Salvar</button>";
-                            //echo "</form>";
-                    
-                            echo "<a href='arquivarAutor.php?idAutor=$idAutor&status=1'>Arquivar</a>";
-                            echo "</div>";
+
+                            // Cria uma div individual para cada autor
+                            //echo "<div class='autorIndividual'>";
+                           // echo "<h2>" . $row['nome'] . "</h2>";
+
+                            //echo "<a href='arquivarAutor.php?idAutor=$idAutor&status=1'>Arquivar</a>";
+                            //echo "</div>";
                     
                             
                         }
@@ -68,7 +81,7 @@
                             <button type='submit'>Adicionar</button>
                         </form>
                     </div>
-                    <div class="containerAutoresArquivados"><a class="autoresArquivados" href="listArquivados.php">Autores Arquivados</a></div>
+                    <div class="containerAutoresArquivados"><a class="autoresArquivados" href="autoresArquivados.php">Autores Arquivados</a></div>
                 </div>
             
         </main>
