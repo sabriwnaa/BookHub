@@ -95,7 +95,7 @@
                         <?php
                         // Conexão para pegar autores
                         $db = new mysqli("localhost", "root", "", "bookhub");
-                        $queryAutor = "SELECT id, nome FROM autor;";
+                        $queryAutor = "SELECT id, nome FROM autor WHERE arquivado = 0;";
                         $resultadoAutor = $db->query($queryAutor);
                         while ($autor = $resultadoAutor->fetch_array()) {
                             echo "<option value='" . $autor['id'] . "'>" . $autor['nome'] . "</option>";
