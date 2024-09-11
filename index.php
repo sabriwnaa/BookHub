@@ -267,6 +267,7 @@ switch ($ordenar) {
         </div>
     </main>
 
+    
     <script>
         const menu = document.querySelector('.floating_item')
         const filtroDropdown = document.getElementById('filtroDropdown')
