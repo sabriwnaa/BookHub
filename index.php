@@ -280,7 +280,7 @@ switch ($ordenar) {
     </script>
 
     <footer>
-        informações do site
+        Gabriel, Sabrina e Ana 3TI - 2024.
     </footer>
 </div>
 </body>
