@@ -141,7 +141,7 @@ $arquivado = isset($_GET['arquivado']) ? $_GET['arquivado'] : '0';
 
 
 
-//$emprestado = isset($_GET['emprestado']) ? $_GET['emprestado'] : 'todos';
+$emprestado = isset($_GET['emprestado']) ? $_GET['emprestado'] : 'todos';
 
 
 
@@ -160,9 +160,15 @@ if ($arquivado != 'todos') {
 }
 
 // Filtro por emprestado
-//if ($emprestado != 'todos') {
-//    $query .= " AND emprestado = $emprestado";
-//}
+if ($emprestado != 'todos') {
+    if ($emprestado == '1') {
+        // Livros emprestados
+        $query .= " AND id IN (SELECT idLivro FROM emprestimo)";
+    } else {
+        // Livros não emprestados
+        $query .= " AND id NOT IN (SELECT idLivro FROM emprestimo)";
+    }
+}
 
 // Filtro por autor
 if ($autor != 'todos') {
