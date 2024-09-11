@@ -10,7 +10,7 @@ if(isset($_POST)){
     $diretorioDestino = $_SERVER['DOCUMENT_ROOT'] . "/BookHub/image/";
 
     if($_FILES['capa']['error'] != 0 ){
-        header("location:../index.html");
+        header("location:../index.php");
         exit;
     }
 
