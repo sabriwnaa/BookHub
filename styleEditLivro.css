@@ -2,7 +2,7 @@
 
 header .btnNSalvar {
     background-color: white;
-    color: #0066cc;
+    color: #6e0d51;
     border: none;
     padding: 8px 16px;
     border-radius: 5px;
@@ -69,12 +69,12 @@ input[type="text"], input[type="number"], select, input[type="file"] {
 
 input[type="text"]:focus, input[type="number"]:focus, select:focus, input[type="file"]:focus {
     outline: none;
-    border-color: #db5959;
+    border-color: #6e0d51;
     background-color: #e0e0e0;
 }
 
 button[type="submit"] {
-    background-color: #0066cc;
+    background-color: #6e0d51;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -85,7 +85,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #004da8;
+    background-color: #6e0d51;
 }
 
 

@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
-    color: black;
+    
 }
 
 header,footer,main{
@@ -23,20 +23,18 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    color: rgb(0, 0, 0);
-
+    color: rgb(255, 255, 255);
+    
 }
 
 .logoDiv{
     width: 300px;
     display: flex;
-    
-    
 }
 
 .logoDiv a{
     text-decoration: none;
-    color: black;
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,7 +89,7 @@ footer{
 .inputPesquisar{
     border: solid white;
     background-color: #6e0d51;
-    color: black;
+    color: rgb(0, 0, 0);
     padding: 2px;
     font-size: 15px;
     border-radius: 20px;
@@ -159,8 +157,8 @@ footer{
     
 }
 
+
 .capa{
-    
     width: 200px;
     height: 100%;
     object-fit: cover;
@@ -205,6 +203,7 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 .containerInfoLivroMain{
@@ -222,9 +221,25 @@ footer{
 
 
 .mainLivro{
-    display: flex;
+    
+    padding: 10px;
     flex: 10;
-    gap: 20px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    
+}
+.containerAll{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    height: 800px;
+    width: 1800px;
+    background-color: rgba(255, 255, 255, 0.24);
+    padding: 20px;
+    border-radius: 20px;
 }
 
 .containerCapa{
@@ -232,43 +247,80 @@ footer{
     align-items: center;
     justify-content: center;
     flex: 1;
-    gap: 20px
+    
+    width: 450px;
+    
 }
 
+
 .containerCapa img{
-    width: 100%;}
+    
+    width: 450px;
+    
+    object-fit: cover;
+    border-radius: 20px;
+}
     
 
 .containerInfo{
-    flex: 3;
+    flex: 2;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 50px;
+    padding: 10px;
+    height: 100%;
+    justify-content: center;
 }
 
 .infoHeader{
     display: flex;
-    justify-content: center;
+    
     align-items: center;
+    font-size: 24px;
 }
 .infoMain{
-    font-size: 40px;
+    
+    font-size: 30px;
     
 }
-.infofooter{
+.infoFooter{
     display: flex;
-    justify-content: center;
-    align-items: center;
+   
+    gap: 10px;
 }
 
+
+.infoFooter a {
+    background-color: #6e0d51;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.infoFooter a:hover {
+    background-color: #961970;
+}
+
+
+
+
+
 .btnVerTodos{
-    color: black;
+    color: rgb(255, 255, 255);
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: transparent;
-    border: solid white;
-    border-radius: 30px;
+    border: solid white 1px;
+    border-radius: 15px;
     padding: 10px;
     cursor: pointer;
 
@@ -278,6 +330,7 @@ footer{
 .autorIndividual{
     display: flex;
     align-items: center;
+    
     gap: 20px;
     background-color: rgba(255, 255, 255, 0.568);
     border-radius: 20px;
@@ -489,4 +542,69 @@ footer{
     opacity: 0; /* Texto desaparece ao passar o mouse */
 }
 
+.containerEmprestimo{
+    display: flex;
+    min-height: 100%;
+    background-color: #6e0d51;
+    flex-direction: column;
+   
+    gap: 40px;
+}
 
+.ContainerImgEmprestimoLivro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    
+}
+.imgEmprestimoLivro{
+    width: 200px;
+}
+.tituloEmprestimo{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: white;
+
+}
+.h1EmprestimoLivro{
+    font-size: 40px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tituloEmprestimo h1{
+    font-size: 40px;
+    color: white;
+    
+}
+.formEmprestimoLivro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.formEmprestimoLivro{
+    color: white;
+}
+
+.formEmprestimoLivro button{
+    padding: 5px;
+    border-radius: 7px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+}
+.formEmprestimoLivro button:hover{
+    
+    color: #ffffff;
+   background-color: #000000;
+}

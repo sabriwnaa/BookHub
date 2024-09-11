@@ -68,7 +68,7 @@
         }
         }
     ?>
-    
+    <div class="containerAll">
     <div class="containerCapa">
         <img  src="<?php   
         $caminhoImagem = "../".$livro['capa'];
@@ -127,20 +127,23 @@
                     echo "<a href='arquivarLivro.php?idLivro=$idLivro&status=$status'>$texto</a>";
                 }
             ?>
-
+            <div></div>
             <?php
             
                 if ($livro['arquivado'] == 0) {
                     
                     
                     if ($statusEmprestimo == true && isset($emprestimo)) {
+                        
                         $nomePessoa = $emprestimo['nomePessoa'];
                         $emailPessoa = $emprestimo['emailPessoa'];
                     
                         echo "<a href='../emprestimo/devolverLivro.php?idLivro=$idLivro'>Devolver</a>";
+                        echo"<div>";
                         echo "<p>Emprestado para: ".$nomePessoa."</p>";
                         echo "<p>Email: ".$emailPessoa."</p>";
                         echo "<p>Data do emprestimo: ".$dataEmprestimo."</p>";
+                    echo"</div>";
                     } else {
                         echo "<a href='../emprestimo/formEmprestarLivro.php?idLivro=$idLivro'>Emprestar</a>";
                     }
@@ -153,7 +156,7 @@
 
 
             </a>
-        </div>
+        </div></div>
 
     </div>
 

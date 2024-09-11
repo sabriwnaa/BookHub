@@ -52,7 +52,7 @@
 <div class="container">
     <header>
         <div class="logoDiv">
-            <a href="index.php">
+            <a href="index.php" >
                <img class="logo" src="image/logo.png">
                <h1>BookHub</h1>
             </a>

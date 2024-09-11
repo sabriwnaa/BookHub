@@ -50,9 +50,9 @@
         <button class="btnNSalvar" onclick="window.location.href='paginaLivro.php?idLivro=<?php echo $idLivro; ?>'">Voltar sem Salvar</button>
     </header>
 
-    <main>
+    <main class="mainEditLivro">
 
-        <form action="editLivro.php" method="POST" enctype="multipart/form-data">
+        <form class="formEditLivro" action="editLivro.php" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?php echo $idLivro; ?>">
 
             <div class="containerCapa"><img src="<?php echo "../" . $livro['capa']; ?>" alt="Capa Atual" style="max-width: 150px;">

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar livro</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../styleEditLivro.css">
+    <link rel="stylesheet" href="../styleGlobal.css">
     <script>
         // Verifica se o parâmetro 'erro' está presente na URL
         window.onload = function() {
@@ -14,6 +15,7 @@
             }
         };
     </script>
+    
 </head>
 <body>
     <header>
@@ -29,15 +31,15 @@
         <form method="post" action="addLivro.php" enctype="multipart/form-data">
             <label for="capa">Selecione o arquivo:</label>
             <input type="file" name="capa" id="capa" required accept=".pdf, .png, .jpg">
-            <br>
-            <label for="titulo">
+            
+            
                 <input placeholder="Nome do Livro" type="text" id="titulo" required name="titulo">
-            </label>
-            <br>
+            
+            
             <label for="ano">Ano</label>
             <input type="number" id="ano" required name="ano">
-            <br>
-            <br>
+            
+            
             <label for="autor">Autor(a)</label>
             <?php
             $db = new mysqli("localhost", "root", "", "bookhub");
@@ -62,7 +64,7 @@
             $db->close();
             ?>
             <br>
-            <input type="submit" name="botao" value="Adicionar">
+            <button type="submit" name="botao" value="Adicionar">Adicionar</button>
         </form>
     </main>
 </body>

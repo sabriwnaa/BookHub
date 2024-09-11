@@ -38,6 +38,7 @@
                             if ($editId == $idAutor) {
                                 // Exibir formulário de edição se o ID do autor for igual ao editId
                                 echo "<div class='autorIndividual'>";
+                                
                                 echo "<form method='POST' action='editAutor.php'>";
                                 echo "<input type='hidden' name='id' value='$idAutor'>";
                                 echo "<input type='text' name='nome' value='$nomeAutor'>";
