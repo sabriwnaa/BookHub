@@ -503,7 +503,7 @@ footer{
     cursor: pointer;
 }
 .emprestado{
-    -webkit-filter: brightness(20%);
+    filter: brightness(20%);
     
 }
 .emprestado:hover{	

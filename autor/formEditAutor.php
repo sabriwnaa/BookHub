@@ -38,7 +38,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         <main>
             <div class="containerEditAutor">
                 <h2>Editar Autor(a)</h2>
-                <form method='post' action='editAutor.php?id=<?php echo htmlspecialchars($autor['id']); ?> && nome='<?php echo htmlspecialchars($['nome']); ?>'>
+                <form method='post' action='editAutor.php?id=<?php echo htmlspecialchars($autor['id']); ?> && nome='<?php echo htmlspecialchars($autor['nome']); ?>'>
                     
                     <label for="nome">Nome</label>
                     <input type="text" id="nome" name="nome"?>" required>

@@ -27,8 +27,10 @@
         </div>
     </header>
 
-    <main>
+    <main><H2>Adicionar novo livro</H2>
         <form method="post" action="addLivro.php" enctype="multipart/form-data">
+            
+            
             <label for="capa">Selecione o arquivo:</label>
             <input type="file" name="capa" id="capa" required accept=".pdf, .png, .jpg">
             
