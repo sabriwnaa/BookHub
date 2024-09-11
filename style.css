@@ -161,12 +161,15 @@ footer{
 
 .capa{
     
-    width: 300px;
+    width: 200px;
     height: 100%;
     object-fit: cover;
     border-radius: 15px;
     transition: 200ms;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
 }
 .capa:hover{
@@ -446,3 +449,44 @@ footer{
     border-radius: 4px;
     cursor: pointer;
 }
+.emprestado{
+    -webkit-filter: brightness(20%);
+    
+}
+.emprestado:hover{	
+    -webkit-filter: none;
+    filter: none;
+}
+.ContainerLivroEmprestado {
+    position: relative;
+    display: inline-block;
+    width: fit-content;
+}
+
+.capa.emprestado {
+    display: block;
+    max-width: 100%;
+    
+}
+
+.ContainerLivroEmprestado::after {
+    content: "EMPRESTADO"; /* Substitua pelo texto desejado */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-align: center;
+    opacity: 1; /* Texto visível por padrão */
+    transition: opacity 0.3s ease; /* Animação suave para o desaparecimento */
+}
+
+.ContainerLivroEmprestado:hover::after {
+    opacity: 0; /* Texto desaparece ao passar o mouse */
+}
+
+

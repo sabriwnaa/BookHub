@@ -124,16 +124,35 @@
             // Conexão com o banco de dados
             $db = new mysqli("localhost", "root", "", "bookhub");
 
+            $queryEmprestimos = "SELECT l.id FROM livro l WHERE l.id IN (SELECT e.idLivro FROM emprestimo e);";
+            $resultadoEmprestimos = $db->query($queryEmprestimos);
+            $livrosEmprestados = array();
+            while ($row = $resultadoEmprestimos->fetch_assoc()) {
+                $livrosEmprestados[] = $row['id'];
+            }
+            
+
+            
+
+
            // Filtros
 $arquivado = isset($_GET['arquivado']) ? $_GET['arquivado'] : '0';
 //FAZER EMPRESTADO PARA O FILTRO
+
+
+
 //$emprestado = isset($_GET['emprestado']) ? $_GET['emprestado'] : 'todos';
+
+
+
 $autor = isset($_GET['autor']) ? $_GET['autor'] : 'todos';
 $ordenar = isset($_GET['ordenar']) ? $_GET['ordenar'] : 'titulo_asc';
 
 $nomeLivro = isset($_GET['pesquisar']) ? $_GET['pesquisar'] : '';
 
 $query = "SELECT id, capa, arquivado FROM livro WHERE 1=1";
+
+
 
 // Filtro por arquivado
 if ($arquivado != 'todos') {
@@ -183,15 +202,42 @@ switch ($ordenar) {
                     $caminhoImagem = $row['capa'];
                     $idLivro = $row['id'];
 
-                    echo "<a href='livro/paginaLivro.php?idLivro={$row['id']}'>";
+                    //query para testar se existe empréstimo com o id do livro
+                    $queryTesteEmprestimo = "SELECT COUNT(*) FROM emprestimo WHERE idLivro = ".$idLivro.";";
+                    $resultadoTesteEmprestimo = $db->query($queryTesteEmprestimo);
 
-                    if ($row['arquivado'] == 1) {
-                        echo "<img class='capa arquivado' src='$caminhoImagem' alt='Capa do Livro'>";
+                    $testeEmprestimo = $resultadoTesteEmprestimo->fetch_array()[0];
+       
+                    if($testeEmprestimo > 0){
+                        $emprestado = true;
                     }else{
-                        echo "<img class='capa' src='$caminhoImagem' alt='Capa do Livro'>";
+                        $emprestado = false;
                     }
+
+                    //------------------
+
                     
 
+                    if ($row['arquivado'] == 1) {
+                        echo "<a href='livro/paginaLivro.php?idLivro={$row['id']}'>";
+                        echo "<img class='capa arquivado' src='$caminhoImagem' alt='Capa do Livro'>";
+                        echo "</a>";
+                        
+                    }else{
+                        if($emprestado){
+                            echo "<a class='ContainerLivroEmprestado' href='livro/paginaLivro.php?idLivro={$row['id']}'>";
+                            echo "<img class='capa emprestado' src='$caminhoImagem''>";
+                            echo "</a>";
+                        }else{
+                            echo "<a href='livro/paginaLivro.php?idLivro={$row['id']}'>";
+                            echo "<img class='capa' src='$caminhoImagem' alt='Capa do Livro'>  </img>";
+                            echo "</a>";
+                        }
+                        
+                        
+                    };
+                    
+                    
 
                     echo "</a>";
                 }
