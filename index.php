@@ -35,8 +35,8 @@
                     <!-- Filtro por arquivação -->
                     <label for="arquivado">Arquivado:</label>
                     <select id="arquivado" name="arquivado">
-                        <option value="todos">Arquivados e não arquivados</option>
                         <option value="0">Não arquivados</option>
+                        <option value="todos">Arquivados e não arquivados</option>
                         <option value="1">Arquivados</option>
                     </select>
 
@@ -91,28 +91,14 @@
                 $livrosEmprestados[] = $row['id'];
             }
             
-
-            
-
-
-           // Filtros
+// Filtros
 $arquivado = isset($_GET['arquivado']) ? $_GET['arquivado'] : '0';
-//FAZER EMPRESTADO PARA O FILTRO
-
-
-
 $emprestado = isset($_GET['emprestado']) ? $_GET['emprestado'] : 'todos';
-
-
-
 $autor = isset($_GET['autor']) ? $_GET['autor'] : 'todos';
 $ordenar = isset($_GET['ordenar']) ? $_GET['ordenar'] : 'titulo_asc';
-
 $nomeLivro = isset($_GET['pesquisar']) ? $_GET['pesquisar'] : '';
 
 $query = "SELECT id, capa, arquivado FROM livro WHERE 1=1";
-
-
 
 // Filtro por arquivado
 if ($arquivado != 'todos') {
@@ -157,8 +143,6 @@ switch ($ordenar) {
         break;
 }
 
-
-
             // Executa a query
             $resultado = $db->query($query);
 
@@ -168,7 +152,7 @@ switch ($ordenar) {
                     $caminhoImagem = $row['capa'];
                     $idLivro = $row['id'];
 
-                    //query para testar se existe empréstimo com o id do livro
+                    //query para testar se existe empréstimo com o id do livro, para colocar a classe nele
                     $queryTesteEmprestimo = "SELECT COUNT(*) FROM emprestimo WHERE idLivro = ".$idLivro.";";
                     $resultadoTesteEmprestimo = $db->query($queryTesteEmprestimo);
 
@@ -179,11 +163,8 @@ switch ($ordenar) {
                     }else{
                         $emprestado = false;
                     }
-
-                    //------------------
-
                     
-
+                    //testa se arquivado para colocar a classe e o style nele
                     if ($row['arquivado'] == 1) {
                         echo "<a href='livro/paginaLivro.php?idLivro={$row['id']}'>";
                         echo "<img class='capa arquivado' src='$caminhoImagem' alt='Capa do Livro'>";
@@ -203,8 +184,6 @@ switch ($ordenar) {
                         
                     };
                     
-                    
-
                     echo "</a>";
                 }
             } else {
@@ -217,12 +196,16 @@ switch ($ordenar) {
         </div>
 
         <div class="menu_content">
-            <div class="item floating_item" style="background-color: #0081CF; z-index: 1; rotate: 45deg;">
+            <div class="item floating_item" style="background-color: #ffffff; z-index: 1;">
                 <p>+</p>
             </div>
             <div class="options">
-                <a href="livro/formAddLivro.php" class='item'>L</a>
-                <a href="autor/formAddAutor.php" class='item'>A</a>
+                <a href="livro/formAddLivro.php" class='item'>
+                    <img src="image/book.png" style=" width: 30px;">
+                </a>
+                <a href="autor/formAddAutor.php" class='item'>
+                    <img src="image/author.png" style=" width: 30px;">
+                </a>
             </div>
         </div>
     </main>
@@ -231,12 +214,9 @@ switch ($ordenar) {
     <script>
         const menu = document.querySelector('.floating_item')
         const filtroDropdown = document.getElementById('filtroDropdown')
-
         function toggleFiltro() {
         filtroDropdown.style.display = filtroDropdown.style.display === 'none' || filtroDropdown.style.display === '' ? 'block' : 'none';
     }
-
-
         menu.onclick = () => menu.classList.toggle('active')
     </script>
 
