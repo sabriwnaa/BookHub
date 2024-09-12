@@ -18,14 +18,7 @@
     
 </head>
 <body>
-    <header>
-        <div class="logoDiv">
-            <a href="../index.php">
-                <img class="logo" src="../image/logo.png" alt="Logo">
-                <h1>BookHub</h1>
-            </a>
-        </div>
-    </header>
+    <?php include '../header.php';?>
 
     <main><H2>Adicionar novo livro</H2>
         <form method="post" action="addLivro.php" enctype="multipart/form-data">

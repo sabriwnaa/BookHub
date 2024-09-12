@@ -18,6 +18,7 @@ $livro = $resultadoLivro->fetch_array();
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+    
     <div class="containerEmprestimo">
     <header>
         <div class="logoDiv">
@@ -26,7 +27,14 @@ $livro = $resultadoLivro->fetch_array();
             <h1>BookHub</h1>
             </a>
         </div>
-      <a href="../index.php" class="btnVerTodos">Ver todos</a>
+        <button class="btnNSalvar" style="background-color: white;
+    color: #6e0d51;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;" onclick="window.location.href='../livro/paginaLivro.php?idLivro=<?php echo $idLivro; ?>'">Voltar sem emprestar</button>
     </header>
     <main>
     <div class="tituloEmprestimoLivro">

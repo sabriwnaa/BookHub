@@ -9,14 +9,8 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <div class="logoDiv">
-                <a href="../index.php">
-                    <img class="logo" src="../image/logo.png" alt="">
-                    <h1>BookHub</h1>
-                </a>
-            </div>
-        </header>
+        
+    <?php include '../header.php';?>
 
         <div class="listagemAutores">
         <main class="mainAutores"> 

@@ -26,6 +26,9 @@ $resultado = $db->query($query);
                     <h1>BookHub</h1>
                 </a>
             </div>
+
+            <a href="formAddAutor.php" class="btnVerTodos">Autores desarquivados</a>
+
         </header>
 
         <main>
