@@ -220,9 +220,7 @@ switch ($ordenar) {
         menu.onclick = () => menu.classList.toggle('active')
     </script>
 
-    <footer>
-        Gabriel, Sabrina e Ana 3TI - 2024.
-    </footer>
+    <?php include 'footer.php';?>
 </div>
 </body>
 </html>
