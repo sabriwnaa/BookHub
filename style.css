@@ -484,6 +484,7 @@ footer{
     display: none;
     z-index: 1000; /* Garante que o menu de filtro fique acima de outros elementos */
 }
+
 .filtro-container label {
     margin-bottom: 5px;
     display: block;
@@ -492,16 +493,21 @@ footer{
     margin-bottom: 10px;
     width: 100%;
 }
+
 .filtro-container button {
     display: block;
     width: 100%;
-    background-color: #0081CF;
-    color: white;
+    background-color: #ffffff;
+    color: rgb(87, 9, 93);
     border: none;
     padding: 10px;
     border-radius: 4px;
     cursor: pointer;
 }
+.filtro-container button:hover {
+    background-color: #ffffff;
+}
+
 .emprestado{
     filter: brightness(20%);
     

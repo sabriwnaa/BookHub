@@ -5,47 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookHub - Página Inicial</title>
     <link rel="stylesheet" href="style.css">
-    
-    <style>
-        .containerFiltro {
-            position: relative;
-            display: inline-block;
-        }
-        .filtro-container {
-            position: absolute;
-            top: 100%; /* Ajusta a posição para ficar logo abaixo do botão */
-            width: 120px;
-            right: 10px;
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
-            padding: 10px;
-            display: none;
-            z-index: 1000; /* Garante que o menu de filtro fique acima de outros elementos */
-        }
-        .filtro-container label {
-            margin-bottom: 5px;
-            display: block;
-        }
-        .filtro-container select {
-            margin-bottom: 10px;
-            width: 100%;
-        }
-        .filtro-container button {
-            display: block;
-            width: 100%;
-            background-color: #0081CF;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .filtro-container button:hover {
-            background-color: #005f8a;
-        }
-    </style>
+
 </head>
 <body>
 
