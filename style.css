@@ -469,13 +469,14 @@ footer{
 .containerFiltro {
     position: relative;
     display: inline-block;
+  
 }
 .filtro-container {
     position: absolute;
     top: 100%; /* Ajusta a posição para ficar logo abaixo do botão */
     width: 120px;
     right: 10px;
-    background-color: white;
+    background-color:#6e0d51;
     border: 1px solid #ddd;
     border-radius: 4px;
     box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
@@ -504,7 +505,7 @@ footer{
     cursor: pointer;
 }
 .filtro-container button:hover {
-    background-color: #ffffff;
+    background-color: #e1c1d8;
 }
 
 .emprestado{
